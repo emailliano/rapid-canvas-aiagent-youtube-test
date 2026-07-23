@@ -1,0 +1,83 @@
+{
+  "persona_id": "weekend_react_dev",
+  "overall_passed": true,
+  "checks": [
+    {
+      "name": "budget_compliance",
+      "passed": true,
+      "severity": "error",
+      "detail": "Selected 1779 seconds from a 21600-second budget."
+    },
+    {
+      "name": "duration_arithmetic",
+      "passed": true,
+      "severity": "error",
+      "detail": "Calculated duration is 1779; reported duration is 1779."
+    },
+    {
+      "name": "remaining_budget_arithmetic",
+      "passed": true,
+      "severity": "error",
+      "detail": "Calculated remaining budget is 19821; reported value is 19821."
+    },
+    {
+      "name": "unique_candidate_accounting",
+      "passed": true,
+      "severity": "error",
+      "detail": "Found 9 curriculum entries and 9 unique video IDs."
+    },
+    {
+      "name": "consecutive_order",
+      "passed": true,
+      "severity": "error",
+      "detail": "Expected orders [1, 2]; received [1, 2]."
+    },
+    {
+      "name": "candidate_accounting",
+      "passed": true,
+      "severity": "error",
+      "detail": "Selected 2 and rejected 7 from an expected 9 candidates."
+    },
+    {
+      "name": "recommended_video_count",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Selected 2 videos; the assignment's reference output suggests 4 to 6 when feasible."
+    },
+    {
+      "name": "budget_utilization",
+      "passed": false,
+      "severity": "warning",
+      "detail": "The curriculum uses 8.2% of the available learning budget."
+    },
+    {
+      "name": "surface_content_constraint",
+      "passed": false,
+      "severity": "warning",
+      "detail": "Potential surface-level selections: React JS Basics Tutorial for Beginners | JSX, Vite, Components Explained"
+    },
+    {
+      "name": "content_level_evidence",
+      "passed": false,
+      "severity": "info",
+      "detail": "Selected evidence contains 0 transcript-grounded and 2 metadata-grounded videos."
+    },
+    {
+      "name": "declared_topic_coverage",
+      "passed": false,
+      "severity": "warning",
+      "detail": "The curriculum declares 3 uncovered or unverified topic areas."
+    }
+  ],
+  "metrics": {
+    "selected_video_count": 2,
+    "rejected_video_count": 7,
+    "total_duration_seconds": 1779,
+    "budget_seconds": 21600,
+    "remaining_budget_seconds": 19821,
+    "budget_utilization": 0.0824,
+    "transcript_evidence_count": 0,
+    "metadata_evidence_count": 2,
+    "declared_uncovered_topic_count": 3
+  }
+}

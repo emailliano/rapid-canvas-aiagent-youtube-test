@@ -8,6 +8,7 @@ from src.models import (
     CandidateAssessment,
     CandidateAssessmentBatch,
     CandidateAssessmentDraftBatch,
+    CurriculumDraft,
     LearningRequest,
     SearchPlan,
     VideoCandidate,
@@ -269,3 +270,169 @@ def assess_candidates_in_batches(
     return CandidateAssessmentBatch(
         assessments=all_assessments
     )
+def create_curriculum_draft(
+    request: LearningRequest,
+    plan: SearchPlan,
+    candidates: list[VideoCandidate],
+    assessments: CandidateAssessmentBatch,
+) -> CurriculumDraft:
+    """Select and order a complementary curriculum from assessed candidates."""
+
+    if not candidates:
+        raise ValueError(
+            "Cannot create a curriculum from an empty candidate list."
+        )
+
+    assessment_by_id = {
+        assessment.video_id: assessment
+        for assessment in assessments.assessments
+    }
+
+    candidate_ids = {
+        candidate.video_id
+        for candidate in candidates
+    }
+    assessment_ids = set(assessment_by_id)
+
+    if assessment_ids != candidate_ids:
+        raise ValueError(
+            "Candidate and assessment IDs do not match."
+        )
+
+    numbered_candidates = []
+
+    for candidate_number, candidate in enumerate(candidates, start=1):
+        assessment = assessment_by_id[candidate.video_id]
+
+        numbered_candidates.append(
+            {
+                "candidate_number": candidate_number,
+                "video": candidate.model_dump(
+                    exclude={"video_id", "discovery_query"}
+                ),
+                "assessment": assessment.model_dump(
+                    exclude={"video_id"}
+                ),
+            }
+        )
+
+    payload = {
+        "learner_request": request.model_dump(),
+        "search_plan": plan.model_dump(),
+        "candidates": numbered_candidates,
+    }
+
+    instructions = """
+You are constructing a personalized YouTube learning curriculum from an
+already-assessed candidate pool.
+
+Select a complementary subset and arrange it in pedagogical order.
+
+Selection principles:
+- Prefer 4 to 6 videos when the candidate pool and time budget justify it.
+- A smaller curriculum is acceptable when additional videos would be redundant,
+  poorly supported, or unnecessary.
+- Do not select by average score alone.
+- Consider relevance, learner fit, constraint fit, duration, evidence quality,
+  required-topic coverage, sequencing, and marginal contribution.
+- Avoid selecting two videos that appear to teach substantially the same material
+  unless the second provides necessary reinforcement or distinct depth.
+- Prefer one strong project spine plus only the foundation or gap-filling videos
+  needed around it.
+- Do not exceed the learner's time budget.
+- Do not add a weak video merely to consume unused time.
+- Use only supplied candidates.
+- Use candidate_number exactly as provided.
+
+Reasoning requirements:
+- curriculum_role should describe the video's pedagogical purpose.
+- added_topics should identify its incremental contribution relative to earlier
+  selected videos, not every topic it might cover.
+- inclusion reasons must remain grounded in the supplied evidence.
+- Treat metadata-based coverage as provisional.
+- Every unselected eligible candidate must appear once in rejected_videos.
+- Explicitly identify required topics that remain uncovered or unverified.
+""".strip()
+
+    client = OpenAI()
+    model = os.getenv("OPENAI_MODEL", "gpt-5.6-luna")
+
+    response = client.responses.parse(
+        model=model,
+        instructions=instructions,
+        input=json.dumps(payload, indent=2),
+        text_format=CurriculumDraft,
+    )
+
+    draft = response.output_parsed
+
+    if draft is None:
+        raise RuntimeError(
+            "The model did not return a valid curriculum draft."
+        )
+
+    selected_numbers = [
+        item.candidate_number
+        for item in draft.selected_videos
+    ]
+    rejected_numbers = [
+        item.candidate_number
+        for item in draft.rejected_videos
+    ]
+    expected_numbers = set(
+        range(1, len(candidates) + 1)
+    )
+
+    if len(selected_numbers) != len(set(selected_numbers)):
+        raise RuntimeError(
+            "The curriculum selected a candidate more than once."
+        )
+
+    if len(rejected_numbers) != len(set(rejected_numbers)):
+        raise RuntimeError(
+            "The curriculum rejected a candidate more than once."
+        )
+
+    if set(selected_numbers) & set(rejected_numbers):
+        raise RuntimeError(
+            "A candidate cannot be both selected and rejected."
+        )
+
+    returned_numbers = set(selected_numbers) | set(rejected_numbers)
+
+    if returned_numbers != expected_numbers:
+        missing = expected_numbers - returned_numbers
+        unexpected = returned_numbers - expected_numbers
+
+        raise RuntimeError(
+            "Curriculum candidate-number mismatch. "
+            f"Missing: {sorted(missing)}. "
+            f"Unexpected: {sorted(unexpected)}."
+        )
+
+    orders = [
+        item.order
+        for item in draft.selected_videos
+    ]
+    expected_orders = list(
+        range(1, len(draft.selected_videos) + 1)
+    )
+
+    if sorted(orders) != expected_orders:
+        raise RuntimeError(
+            "Selected-video order must be consecutive starting at 1."
+        )
+
+    selected_duration = sum(
+        candidates[number - 1].duration_seconds or 0
+        for number in selected_numbers
+    )
+    budget_seconds = request.time_budget_minutes * 60
+
+    if selected_duration > budget_seconds:
+        raise RuntimeError(
+            f"Curriculum exceeds budget: {selected_duration} seconds "
+            f"selected for a {budget_seconds}-second budget."
+        )
+
+    return draft
