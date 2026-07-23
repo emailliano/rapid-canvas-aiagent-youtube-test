@@ -324,22 +324,45 @@ def create_curriculum_draft(
 
     for candidate_number, candidate in enumerate(candidates, start=1):
         assessment = assessment_by_id[candidate.video_id]
+        video_payload = candidate.model_dump(
+            exclude={"video_id", "discovery_query"}
+        )
+        video_payload["duration_minutes"] = round(
+            (candidate.duration_seconds or 0) / 60,
+            1,
+        )
 
         numbered_candidates.append(
             {
                 "candidate_number": candidate_number,
-                "video": candidate.model_dump(
-                    exclude={"video_id", "discovery_query"}
-                ),
+                "video": video_payload,
                 "assessment": assessment.model_dump(
                     exclude={"video_id"}
                 ),
             }
         )
 
+    preferred_minimum_minutes = round(
+        request.time_budget_minutes * 0.67
+    )
+    preferred_maximum_minutes = round(
+        request.time_budget_minutes * 0.90
+    )
+
     payload = {
         "learner_request": request.model_dump(),
         "search_plan": plan.model_dump(),
+        "selection_targets": {
+            "preferred_video_count_min": 4,
+            "preferred_video_count_max": 6,
+            "preferred_duration_minutes_min": (
+                preferred_minimum_minutes
+            ),
+            "preferred_duration_minutes_max": (
+                preferred_maximum_minutes
+            ),
+            "hard_budget_minutes": request.time_budget_minutes,
+        },
         "candidates": numbered_candidates,
     }
 
@@ -357,8 +380,18 @@ Selection principles:
 - Testing, debugging, and deployment are supporting resources. Do not use them
   as substitutes for the foundation and primary implementation project.
 - Aim for 4 to 6 complementary videos when suitable candidates are available.
-- Prefer using approximately 65% to 90% of the learning budget. For a
-  360-minute budget, this means roughly 240 to 330 minutes.
+- Use the explicit selection_targets supplied in the input. Before returning,
+  add the duration_minutes of the selected candidates and compare the total
+  with the preferred minimum, preferred maximum, and hard budget.
+- If the selected total is below the preferred minimum and fewer than 6 videos
+  are selected, add the strongest substantive, nonredundant candidate that
+  fills a real foundation, project, or implementation gap.
+- If 6 videos are already selected below the preferred minimum, consider
+  replacing a short candidate with a deeper relevant alternative.
+- Never exceed the hard budget. Never add irrelevant, redundant,
+  constraint-violating, or weakly supported material merely to reach a target.
+- If the candidate pool cannot reach the preferred minimum responsibly, state
+  the shortfall clearly in uncovered_topics and limitations.
 - A smaller curriculum is acceptable only when additional candidates are
   redundant, irrelevant, constraint-violating, or too weakly supported.
 - If the pool lacks a credible foundation or project spine, state this clearly
