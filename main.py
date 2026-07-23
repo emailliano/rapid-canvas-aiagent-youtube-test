@@ -1,7 +1,10 @@
 import argparse
 from pathlib import Path
 
-from evaluation.evaluate import evaluate_curriculum
+from evaluation.evaluate import (
+    evaluate_curriculum,
+    evaluation_verdicts,
+)
 from src.agent import (
     assess_candidates_in_batches,
     create_curriculum_draft,
@@ -232,10 +235,17 @@ def main() -> None:
         if not check.passed
     ]
 
+    (
+        technical_validity,
+        curriculum_adequacy,
+        evidence_quality,
+    ) = evaluation_verdicts(evaluation)
+
     print(
-        f"\nTechnical validity: "
-        f"{'PASS' if evaluation.overall_passed else 'FAIL'}"
+        f"\nTechnical validity: {technical_validity}"
     )
+    print(f"Curriculum adequacy: {curriculum_adequacy}")
+    print(f"Evidence quality: {evidence_quality}")
 
     if flagged_checks:
         print("\nEvaluation flags:")

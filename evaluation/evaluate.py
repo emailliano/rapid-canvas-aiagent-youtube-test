@@ -1,4 +1,3 @@
-
 import argparse
 from pathlib import Path
 
@@ -8,6 +7,14 @@ from src.models import (
     EvaluationCheck,
     LearningRequest,
 )
+
+ADEQUACY_CHECK_NAMES = {
+    "recommended_video_count",
+    "budget_utilization",
+    "curriculum_backbone",
+    "surface_content_constraint",
+    "declared_topic_coverage",
+}
 
 
 def evaluate_curriculum(
@@ -154,11 +161,75 @@ def evaluate_curriculum(
     checks.append(
         EvaluationCheck(
             name="budget_utilization",
-            passed=utilization >= 0.40,
+            passed=utilization >= 0.67,
             severity="warning",
             detail=(
                 f"The curriculum uses {utilization:.1%} of the "
-                f"available learning budget."
+                "available learning budget; the preferred minimum "
+                "for a project-based curriculum is 67%."
+            ),
+        )
+    )
+
+    foundation_text = " ".join(
+        text
+        for video in selected
+        for text in (
+            video.curriculum_role,
+            *video.added_topics,
+        )
+    ).lower()
+    project_text = " ".join(
+        text
+        for video in selected
+        for text in (
+            video.title,
+            video.curriculum_role,
+            *video.added_topics,
+        )
+    ).lower()
+
+    foundation_present = any(
+        term in foundation_text
+        for term in (
+            "setup",
+            "foundation",
+            "fundamental",
+            "getting started",
+            "tooling",
+        )
+    )
+    project_present = any(
+        term in project_text
+        for term in (
+            "project spine",
+            "primary project",
+            "complete project",
+            "build-along",
+            "build along",
+            "project-based",
+            "habit tracker",
+            "to-do",
+            "todo",
+        )
+    )
+    backbone_passed = foundation_present and project_present
+
+    checks.append(
+        EvaluationCheck(
+            name="curriculum_backbone",
+            passed=backbone_passed,
+            severity="warning",
+            detail=(
+                "The selected roles indicate both a foundation/setup "
+                "resource and a project spine."
+                if backbone_passed
+                else (
+                    "The selected titles and roles do not clearly "
+                    "establish both a foundation/setup resource and "
+                    "a primary project spine. This is a heuristic "
+                    "check and does not verify video contents."
+                )
             ),
         )
     )
@@ -273,6 +344,51 @@ def evaluate_curriculum(
     )
 
 
+def evaluation_verdicts(
+    evaluation: DeterministicEvaluation,
+) -> tuple[str, str, str]:
+    """Summarize technical, curriculum, and evidence quality."""
+
+    technical_validity = (
+        "PASS"
+        if evaluation.overall_passed
+        else "FAIL"
+    )
+
+    adequacy_failed = any(
+        (
+            check.name in ADEQUACY_CHECK_NAMES
+            and not check.passed
+        )
+        for check in evaluation.checks
+    )
+    curriculum_adequacy = (
+        "NEEDS REVISION"
+        if adequacy_failed
+        else "PASS"
+    )
+
+    selected_count = int(
+        evaluation.metrics["selected_video_count"]
+    )
+    transcript_count = int(
+        evaluation.metrics["transcript_evidence_count"]
+    )
+
+    if selected_count > 0 and transcript_count == selected_count:
+        evidence_quality = "STRONG"
+    elif transcript_count > 0:
+        evidence_quality = "MIXED"
+    else:
+        evidence_quality = "LIMITED"
+
+    return (
+        technical_validity,
+        curriculum_adequacy,
+        evidence_quality,
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Evaluate a generated learning curriculum."
@@ -323,10 +439,17 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    (
+        technical_validity,
+        curriculum_adequacy,
+        evidence_quality,
+    ) = evaluation_verdicts(result)
+
     print(
-        f"Technical validity: "
-        f"{'PASS' if result.overall_passed else 'FAIL'}"
+        f"Technical validity: {technical_validity}"
     )
+    print(f"Curriculum adequacy: {curriculum_adequacy}")
+    print(f"Evidence quality: {evidence_quality}")
 
     for check in result.checks:
         status = "PASS" if check.passed else "FLAG"

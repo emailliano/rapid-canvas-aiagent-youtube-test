@@ -46,9 +46,15 @@
     },
     {
       "name": "budget_utilization",
+      "passed": false,
+      "severity": "warning",
+      "detail": "The curriculum uses 42.5% of the available learning budget; the preferred minimum for a project-based curriculum is 67%."
+    },
+    {
+      "name": "curriculum_backbone",
       "passed": true,
       "severity": "warning",
-      "detail": "The curriculum uses 42.5% of the available learning budget."
+      "detail": "The selected roles indicate both a foundation/setup resource and a project spine."
     },
     {
       "name": "surface_content_constraint",

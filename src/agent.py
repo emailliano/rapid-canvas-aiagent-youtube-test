@@ -31,23 +31,27 @@ Determine:
 1. The topics the learner must cover to achieve the goal.
 2. Topics or content styles that should be excluded because they are already
    known, irrelevant, too superficial, or explicitly unwanted.
-3. Between 3 and 6 complementary YouTube search queries.
+3. Exactly 6 complementary YouTube search queries for the software project.
 
-The queries should collectively discover:
-- one substantial foundation or build-along resource,
-- necessary setup and development tooling,
-- practical instruction for the learner's specific knowledge gaps,
-- one complete project closely aligned with the learner's goal,
-- targeted supplements for important capabilities the project may omit,
-- testing, debugging, or deployment guidance when relevant.
+Give each query one distinct curriculum role:
+1. Setup and development tooling.
+2. A substantial foundation taught through practical work.
+3. A complete project that directly matches the learner's goal.
+4. A closely transferable project covering similar implementation patterns.
+5. The most important implementation gap the projects may omit.
+6. Testing, debugging, deployment, or an established educational source.
 
-Prefer queries that name concrete technologies, project features, and missing
-skills. Avoid producing several queries that are minor variations of the same
-topic. Use the learner's full time budget as a planning constraint: search for
-enough complementary material to support both learning and implementation.
-Do not search for topics the learner already knows unless they are inseparable
-from the requested project. Make queries specific enough to reduce irrelevant
-results.
+Query-writing rules:
+- Give each query one primary search intention.
+- Use approximately 5 to 10 meaningful terms.
+- Name concrete technologies, project features, and the desired content style.
+- Prefer phrases such as "complete project", "build along", or "full tutorial"
+  when depth matters.
+- Do not create minor variations of the same keyword-heavy query.
+- Do not search for known topics unless they are inseparable from the project.
+- One query may name an established software school or official source, but
+  source reputation must not replace relevance to the learner.
+- Search for enough complementary depth to use most of the learning budget.
 
 For a software project, decompose the goal into observable implementation
 capabilities. For example: environment setup, application structure, state,
@@ -346,12 +350,20 @@ already-assessed candidate pool.
 Select a complementary subset and arrange it in pedagogical order.
 
 Selection principles:
+- Build the curriculum backbone first:
+  1. setup or a substantial practical foundation,
+  2. one primary project spine aligned with the learner's goal,
+  3. a gap-filling implementation resource for a capability the project omits.
+- Testing, debugging, and deployment are supporting resources. Do not use them
+  as substitutes for the foundation and primary implementation project.
 - Aim for 4 to 6 complementary videos when suitable candidates are available.
-- Try to use a meaningful portion of the learning budget, generally 40% to 70%
-  for video instruction in a practical project curriculum, while preserving
-  enough time for hands-on implementation and debugging.
+- Prefer using approximately 65% to 90% of the learning budget. For a
+  360-minute budget, this means roughly 240 to 330 minutes.
 - A smaller curriculum is acceptable only when additional candidates are
   redundant, irrelevant, constraint-violating, or too weakly supported.
+- If the pool lacks a credible foundation or project spine, state this clearly
+  in uncovered_topics and limitations rather than presenting supporting videos
+  as an adequate curriculum.
 - Before finalizing, compare the selected set with every required topic and
   prefer a useful gap-filling candidate over leaving an important capability
   uncovered.
@@ -364,6 +376,10 @@ Selection principles:
   needed around it.
 - Do not exceed the learner's time budget.
 - Do not add a weak video merely to consume unused time.
+- When evidence is metadata-only, prefer candidates whose titles explicitly
+  identify the relevant project, technologies, and features over generic titles.
+- Channel reputation is only a modest quality signal. It is not proof of topic
+  coverage and must not override learner fit, constraints, or evidence quality.
 - Respect the learner's preference about superficial or compressed content.
 - When the learner rejects surface-level introductions, do not select a video
   shorter than 5 minutes unless its metadata clearly indicates a concrete,
