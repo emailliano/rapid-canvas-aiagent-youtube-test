@@ -1,0 +1,34 @@
+{
+  "persona_id": "aws_data_science_transition",
+  "goal": "Learn the AWS cloud fundamentals needed for data science by building an end-to-end workflow that stores data, trains a machine learning model, saves its artifacts, and deploys the trained model in AWS",
+  "time_budget_minutes": 480,
+  "user_context": {
+    "background": "Data scientist who works locally with Python and notebooks and understands the data science lifecycle, but has no professional cloud-computing experience",
+    "known": [
+      "Python programming",
+      "Jupyter Notebook",
+      "NumPy and pandas",
+      "Data cleaning and exploratory analysis",
+      "Machine learning workflows",
+      "Feature preparation",
+      "Model training and evaluation",
+      "Git and command-line fundamentals"
+    ],
+    "unknown": [
+      "Core cloud-computing concepts",
+      "AWS regions, availability zones, and service selection",
+      "IAM users, roles, policies, and access permissions",
+      "Amazon S3 for datasets and trained-model artifacts",
+      "Amazon EC2 and cloud compute fundamentals",
+      "AWS Command Line Interface",
+      "Programmatic AWS access from Python with boto3",
+      "Amazon SageMaker notebooks and processing workflows",
+      "SageMaker model training jobs",
+      "Saving and retrieving model artifacts",
+      "Deploying a trained model to a SageMaker endpoint",
+      "Connecting AWS storage, compute, and machine-learning services",
+      "Testing predictions from a deployed endpoint"
+    ],
+    "constraints": "I prefer hands-on, project-based instruction focused specifically on AWS for data science. The curriculum should use a real dataset and lead to one understandable end-to-end workflow that includes data storage, model training, artifact management, deployment, and test predictions. Include practical exposure to both the AWS CLI and boto3. Avoid generic certification-preparation courses, multi-cloud comparisons, advanced Kubernetes, enterprise-scale data engineering, Spark clusters, complex CI/CD, and advanced MLOps platforms. Do not prioritize billing, cost optimization, or resource-cleanup instruction."
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "persona_id": "aws_data_science_transition",
+  "title": "AWS Data Science Transition: SageMaker End-to-End Workflow",
+  "selected_videos": [
+    {
+      "video_id": "Ld2oTLY47sA",
+      "title": "AI Engineering with AWS SageMaker: Crash Course for Beginners!",
+      "url": "https://www.youtube.com/watch?v=Ld2oTLY47sA",
+      "duration_seconds": 14129,
+      "order": 1,
+      "curriculum_role": "Substantial SageMaker foundation and orientation before building the project",
+      "added_topics": [
+        "Beginner-oriented SageMaker concepts",
+        "Broader SageMaker workflow context"
+      ],
+      "inclusion_reason": "The title indicates a substantial beginner-oriented SageMaker course. It provides the strongest available foundation for a learner without professional cloud experience, although its exact coverage should be verified because the evidence is metadata-only.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "f7VwMnUYcIk",
+      "title": "How to upload files to S3 using Python | Create Users in AWS | IAM Access | DE Project Part 3",
+      "url": "https://www.youtube.com/watch?v=f7VwMnUYcIk",
+      "duration_seconds": 802,
+      "order": 2,
+      "curriculum_role": "AWS access and initial storage setup",
+      "added_topics": [
+        "AWS IAM user creation and access",
+        "Uploading files to S3"
+      ],
+      "inclusion_reason": "The title suggests hands-on practice with IAM access management and S3 uploads, addressing foundational permissions and dataset-storage needs. Coverage of roles, policies, and SageMaker execution roles should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.52
+    },
+    {
+      "video_id": "21-t7Rkokmo",
+      "title": "AWS CLI Tutorial | Learn to run AWS CLI commands in 10 minutes",
+      "url": "https://www.youtube.com/watch?v=21-t7Rkokmo",
+      "duration_seconds": 681,
+      "order": 3,
+      "curriculum_role": "Command-line access supplement",
+      "added_topics": [
+        "AWS CLI usage",
+        "Practical AWS resource commands"
+      ],
+      "inclusion_reason": "The title explicitly identifies a practical AWS CLI tutorial, giving the learner the requested command-line exposure before working through AWS resources. Its coverage of profiles, regions, and data-science-specific commands should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
+    },
+    {
+      "video_id": "5q7FtT_DyME",
+      "title": "Introduction to Boto3 for Python (Upload File to AWS S3)",
+      "url": "https://www.youtube.com/watch?v=5q7FtT_DyME",
+      "duration_seconds": 433,
+      "order": 4,
+      "curriculum_role": "Python-based storage-access supplement",
+      "added_topics": [
+        "Boto3-based AWS access",
+        "Uploading files to S3 from Python"
+      ],
+      "inclusion_reason": "The title explicitly focuses on using Boto3 for Python-based S3 file uploads, adding the requested programmatic AWS access alongside the CLI. The narrow video should be supplemented by the main project for downloads, SageMaker operations, and artifact handling.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "pFvm9fiXi18",
+      "title": "From Laptop to Cloud: A Complete End-to-End Data Science Project with AWS SageMaker",
+      "url": "https://www.youtube.com/watch?v=pFvm9fiXi18",
+      "duration_seconds": 2663,
+      "order": 5,
+      "curriculum_role": "Primary end-to-end AWS data-science project spine",
+      "added_topics": [
+        "Moving a data-science workflow from a laptop to AWS",
+        "End-to-end SageMaker project integration",
+        "Cloud-based model development and deployment context"
+      ],
+      "inclusion_reason": "The title identifies a complete end-to-end data-science project moving from a laptop to AWS SageMaker, making it the strongest apparent match for the learner's practical goal. S3 storage, IAM, training jobs, artifacts, boto3, and endpoint prediction testing are not confirmed by metadata and should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.52
+    },
+    {
+      "video_id": "YWmnD_QcZQU",
+      "title": "Sagemaker Tutorial - 1 | Build a Sklearn Model with AWS Sagemaker & Custom Training Script",
+      "url": "https://www.youtube.com/watch?v=YWmnD_QcZQU",
+      "duration_seconds": 1990,
+      "order": 6,
+      "curriculum_role": "Gap-filling implementation resource for custom model training",
+      "added_topics": [
+        "Scikit-learn model training in SageMaker",
+        "Custom training scripts",
+        "SageMaker training-job implementation"
+      ],
+      "inclusion_reason": "The title explicitly focuses on building a scikit-learn model with AWS SageMaker and a custom training script. It adds concrete training implementation depth that the broader project may compress, though its use of a real dataset and artifact handling should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    }
+  ],
+  "rejected_videos": [
+    {
+      "video_id": "UBUYOgGGToU",
+      "title": "Week3 - Sagemaker local installation and requirements",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses on local SageMaker installation and requirements rather than the requested AWS workflow. It does not identify S3, IAM, training jobs, artifacts, deployment, or endpoint testing, and its long duration is not justified by the visible evidence."
+    },
+    {
+      "video_id": "FsoSBsrcx9Q",
+      "title": "How to Deploy ML model to AWS Sagemaker with mlflow and Docker - Step by step",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title centers on MLflow and Docker-based SageMaker deployment. Those tools add complexity outside the learner's preferred simple AWS data-science workflow, while S3 storage, training, IAM, CLI, boto3, and endpoint testing are not established."
+    },
+    {
+      "video_id": "3OP39y4dO_Y",
+      "title": "#2- Complete End To End Generative AI Project On AWS Using AWS Bedrock And AWS Lambda",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "This is a Bedrock and Lambda generative-AI project, not the requested S3-to-SageMaker training, artifact, deployment, and prediction workflow."
+    },
+    {
+      "video_id": "JKlOlDFwsao",
+      "title": "Cloud Computing AWS -Upload,Read And Write And Download Files In And From S3 bucket Using Python",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title indicates general Python S3 file operations, substantially overlapping with the selected IAM/S3 and Boto3 supplements without identifying SageMaker, training, artifact management, or deployment."
+    },
+    {
+      "video_id": "s9PVPijAw3I",
+      "title": "How to Upload files from local to AWS S3 using Python (Boto3) API | upload_file method |Handson Demo",
+      "rejection_category": "insufficient_evidence",
+      "rejection_reason": "Although the title identifies a hands-on Boto3 S3 upload, the approximately four-minute duration suggests a narrow task and does not establish the broader storage or AWS workflow capabilities required. It is also less useful than the selected Boto3 resource."
+    },
+    {
+      "video_id": "vVn1xrZarDc",
+      "title": "Upload Files to AWS S3 using Boto and AWS Wrangler Python Libraries",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title focuses on S3 uploads with Boto and AWS Wrangler. It overlaps with the selected Boto3/S3 material and introduces AWS Wrangler without evidence of additional SageMaker or deployment coverage."
+    },
+    {
+      "video_id": "efRNdQUdAtw",
+      "title": "AWS S3: Upload,Read And Write And Download Files In And From S3 bucket Using Python",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title indicates Python S3 upload, read, write, and download operations, but this substantially overlaps with other S3 candidates and does not identify IAM, SageMaker, artifacts, training, or deployment."
+    },
+    {
+      "video_id": "Le-A72NjaWs",
+      "title": "End To End Machine Learning Project Implementation Using AWS Sagemaker",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "This is a plausible SageMaker end-to-end alternative, but candidate 17 has stronger assessed relevance and learner fit. The title of candidate 11 does not establish S3, IAM, CLI, Boto3, artifact handling, or endpoint testing."
+    },
+    {
+      "video_id": "Qv_Tr_BCFCQ",
+      "title": "Introduction to Amazon SageMaker",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title identifies only a short SageMaker introduction. Its duration and metadata suggest an orientation rather than the hands-on foundation or project implementation required by the learner."
+    },
+    {
+      "video_id": "HtnwFBzV1r4",
+      "title": "How To: Use AWS SageMaker for End-to-End ML — Setup, Training, Deployment, and Bias Detection",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title suggests SageMaker setup, training, and deployment, but candidate 17 is a stronger project-spine match. Bias detection is peripheral to the stated goal, and S3, IAM, CLI, Boto3, artifacts, and endpoint invocation are not confirmed."
+    },
+    {
+      "video_id": "7dksopxbcqM",
+      "title": "End-to-End Machine Learning Project Using AWS SageMaker",
+      "rejection_category": "insufficient_evidence",
+      "rejection_reason": "The title indicates an end-to-end SageMaker project, but the short duration may imply compressed coverage. It does not identify the required S3, IAM, CLI, Boto3, artifact, deployment, or prediction details and is weaker than candidate 17."
+    },
+    {
+      "video_id": "vA0C0k72-b4",
+      "title": "Deploy ML model in 10 minutes. Explained",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title does not identify AWS or SageMaker and appears to be a short generic model-deployment explanation, making it unsuitable for an AWS-specific curriculum."
+    },
+    {
+      "video_id": "R0dyrBQMAnQ",
+      "title": "AWS ML Dev Day - End-to-End Amazon SageMaker Pipeline with BERT - June 2021",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "Although the title indicates an end-to-end SageMaker pipeline, its BERT focus, very long duration, pipeline orientation, and older date make it more advanced and less aligned with the learner's desired understandable scikit-learn workflow."
+    },
+    {
+      "video_id": "xf46PdAjbY8",
+      "title": "Amazon SageMaker Studio - Deploying a model to an endpoint",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title focuses narrowly on SageMaker Studio endpoint deployment. Candidate 17 already serves as the project spine, while this video does not establish endpoint invocation, testing, artifact creation, or the preceding storage and training workflow."
+    }
+  ],
+  "covered_topics": [
+    "SageMaker orientation and beginner context",
+    "IAM access and S3 uploads",
+    "AWS CLI exposure",
+    "Boto3-based Python access to S3",
+    "End-to-end SageMaker data-science workflow",
+    "Scikit-learn SageMaker training with a custom script",
+    "Cloud transition from local development to AWS"
+  ],
+  "uncovered_topics": [
+    "Core AWS regions, availability zones, accounts, and systematic service selection",
+    "IAM roles, policies, and SageMaker execution-role design beyond possible user access coverage",
+    "Detailed AWS CLI installation, profiles, regions, and resource-specific commands",
+    "S3 prefixes, downloads, dataset organization, and model-artifact storage",
+    "Boto3 operations for SageMaker jobs, models, endpoints, and invocation",
+    "SageMaker processing workflows for preparing a real dataset",
+    "Explicit packaging of training outputs and saving model artifacts to S3",
+    "Creating a SageMaker model from S3 artifacts",
+    "Explicit endpoint invocation and test predictions",
+    "Testing, debugging, monitoring, and diagnosing IAM, S3, packaging, or deployment errors"
+  ],
+  "total_duration_seconds": 20698,
+  "budget_seconds": 28800,
+  "remaining_budget_seconds": 8102,
+  "limitations": [
+    "The selected set totals approximately 345.0 minutes, which is within the preferred duration range and hard budget; the duration calculation is based on supplied metadata.",
+    "Candidate 17 is the strongest apparent project spine, but metadata does not verify that it includes every required stage, a real dataset, or reproducible endpoint predictions.",
+    "Candidate 15 supplies substantial foundation time but has broad crash-course framing and unverified topic coverage; some material may overlap with the project spine.",
+    "The pool has no clearly evidenced resource dedicated to SageMaker processing, model-artifact packaging, endpoint invocation, or systematic debugging.",
+    "CLI and Boto3 coverage are represented by short focused supplements, but their depth and AWS data-science relevance should be verified before study."
+  ]
+}
