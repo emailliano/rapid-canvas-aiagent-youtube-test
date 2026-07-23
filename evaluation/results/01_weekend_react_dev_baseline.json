@@ -6,78 +6,78 @@
       "name": "budget_compliance",
       "passed": true,
       "severity": "error",
-      "detail": "Selected 1779 seconds from a 21600-second budget."
+      "detail": "Selected 9186 seconds from a 21600-second budget."
     },
     {
       "name": "duration_arithmetic",
       "passed": true,
       "severity": "error",
-      "detail": "Calculated duration is 1779; reported duration is 1779."
+      "detail": "Calculated duration is 9186; reported duration is 9186."
     },
     {
       "name": "remaining_budget_arithmetic",
       "passed": true,
       "severity": "error",
-      "detail": "Calculated remaining budget is 19821; reported value is 19821."
+      "detail": "Calculated remaining budget is 12414; reported value is 12414."
     },
     {
       "name": "unique_candidate_accounting",
       "passed": true,
       "severity": "error",
-      "detail": "Found 9 curriculum entries and 9 unique video IDs."
+      "detail": "Found 15 curriculum entries and 15 unique video IDs."
     },
     {
       "name": "consecutive_order",
       "passed": true,
       "severity": "error",
-      "detail": "Expected orders [1, 2]; received [1, 2]."
+      "detail": "Expected orders [1, 2, 3]; received [1, 2, 3]."
     },
     {
       "name": "candidate_accounting",
       "passed": true,
       "severity": "error",
-      "detail": "Selected 2 and rejected 7 from an expected 9 candidates."
+      "detail": "Selected 3 and rejected 12 from an expected 15 candidates."
     },
     {
       "name": "recommended_video_count",
       "passed": false,
       "severity": "warning",
-      "detail": "Selected 2 videos; the assignment's reference output suggests 4 to 6 when feasible."
+      "detail": "Selected 3 videos; the assignment's reference output suggests 4 to 6 when feasible."
     },
     {
       "name": "budget_utilization",
-      "passed": false,
+      "passed": true,
       "severity": "warning",
-      "detail": "The curriculum uses 8.2% of the available learning budget."
+      "detail": "The curriculum uses 42.5% of the available learning budget."
     },
     {
       "name": "surface_content_constraint",
-      "passed": false,
+      "passed": true,
       "severity": "warning",
-      "detail": "Potential surface-level selections: React JS Basics Tutorial for Beginners | JSX, Vite, Components Explained"
+      "detail": "No selected video under five minutes conflicts with the learner's surface-content constraint."
     },
     {
       "name": "content_level_evidence",
       "passed": false,
       "severity": "info",
-      "detail": "Selected evidence contains 0 transcript-grounded and 2 metadata-grounded videos."
+      "detail": "Selected evidence contains 0 transcript-grounded and 3 metadata-grounded videos."
     },
     {
       "name": "declared_topic_coverage",
       "passed": false,
       "severity": "warning",
-      "detail": "The curriculum declares 3 uncovered or unverified topic areas."
+      "detail": "The curriculum declares 9 uncovered or unverified topic areas."
     }
   ],
   "metrics": {
-    "selected_video_count": 2,
-    "rejected_video_count": 7,
-    "total_duration_seconds": 1779,
+    "selected_video_count": 3,
+    "rejected_video_count": 12,
+    "total_duration_seconds": 9186,
     "budget_seconds": 21600,
-    "remaining_budget_seconds": 19821,
-    "budget_utilization": 0.0824,
+    "remaining_budget_seconds": 12414,
+    "budget_utilization": 0.4253,
     "transcript_evidence_count": 0,
-    "metadata_evidence_count": 2,
-    "declared_uncovered_topic_count": 3
+    "metadata_evidence_count": 3,
+    "declared_uncovered_topic_count": 9
   }
 }

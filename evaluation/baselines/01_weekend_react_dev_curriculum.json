@@ -3,107 +3,151 @@
   "title": "Weekend React Habit Tracker Curriculum",
   "selected_videos": [
     {
-      "video_id": "fzoU0zTRV6s",
-      "title": "React JS Basics Tutorial for Beginners | JSX, Vite, Components Explained",
-      "url": "https://www.youtube.com/watch?v=fzoU0zTRV6s",
-      "duration_seconds": 160,
+      "video_id": "G6D9cBaLViA",
+      "title": "Learn React With This ONE Project",
+      "url": "https://www.youtube.com/watch?v=G6D9cBaLViA",
+      "duration_seconds": 5970,
       "order": 1,
-      "curriculum_role": "Fast project prerequisite: orient the learner to Vite, JSX, functional components, props, and basic component composition before starting the app.",
+      "curriculum_role": "Project-based React foundation and primary implementation spine",
       "added_topics": [
-        "Vite app setup and development server",
-        "JSX",
-        "Functional components",
-        "Props",
-        "Basic component hierarchy"
+        "React and JSX fundamentals learned through a project",
+        "Components, props, composition, and reusable component patterns",
+        "React state with useState and derived state"
       ],
-      "inclusion_reason": "It explicitly names Vite, JSX, and components, which are all learner gaps and prerequisites for following the project tutorial. Its 160-second duration keeps the setup lightweight, although the depth is uncertain.",
+      "inclusion_reason": "The title strongly indicates learning React through one project, matching the learner's preference for implementation over theory. The assessment also identifies likely coverage of React/JSX fundamentals, components, props, composition, and useState-based state. The specific project and habit-tracker features should be verified before relying on it for CRUD or persistence.",
       "evidence_source": "metadata",
       "confidence": 0.5
     },
     {
-      "video_id": "X92kk5iT8CM",
-      "title": "Build a Complete To-Do List App with React + Vite | Dashboard, Reminders & Local Storage Tutorial",
-      "url": "https://www.youtube.com/watch?v=X92kk5iT8CM",
-      "duration_seconds": 1619,
+      "video_id": "CxSL0knFxAs",
+      "title": "React Vite Testing Tutorial For Beginners - Vitest Testing Crash Course",
+      "url": "https://www.youtube.com/watch?v=CxSL0knFxAs",
+      "duration_seconds": 2325,
       "order": 2,
-      "curriculum_role": "Primary project spine: build the small CRUD-style React app and connect the foundational concepts to forms, state, filtering, and persistence.",
+      "curriculum_role": "Testing supplement for the completed React project",
       "added_topics": [
-        "Habit-like item creation, editing, completion, and deletion",
-        "useState-driven event handling",
-        "Controlled form submission",
-        "Filtering",
-        "useEffect and localStorage synchronization",
-        "Integrated React/Vite project workflow"
+        "Component and behavior testing with Vitest and React Testing Library, subject to verification"
       ],
-      "inclusion_reason": "This is the closest available match to the requested weekend project: a React/Vite to-do app with local storage. The assessment attributes coverage of the major state, form, persistence, and filtering requirements, while noting that metadata cannot verify the implementation details.",
+      "inclusion_reason": "The title explicitly focuses on React, Vite, and Vitest testing, making it the strongest available candidate for the required testing capability. It should be used after the application works, and its React Testing Library and behavior-testing depth should be verified because the evidence is metadata-only.",
       "evidence_source": "metadata",
-      "confidence": 0.55
+      "confidence": 0.45
+    },
+    {
+      "video_id": "dg2Gw1HSlpQ",
+      "title": "How to deploy react app to production",
+      "url": "https://www.youtube.com/watch?v=dg2Gw1HSlpQ",
+      "duration_seconds": 891,
+      "order": 3,
+      "curriculum_role": "Production deployment and publishing step",
+      "added_topics": [
+        "Deploying the finished React app to production, with the Vite and hosting workflow to be verified"
+      ],
+      "inclusion_reason": "The title indicates a focused lesson on deploying a React app to production and therefore provides a practical final step after implementation. The exact host, Vite workflow, and production-build details are not confirmed by the metadata and should be checked.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
     }
   ],
   "rejected_videos": [
     {
       "video_id": "wIyHSOugGGw",
       "title": "Every React Concept Explained in 12 Minutes",
-      "rejection_category": "constraint_violation",
-      "rejection_reason": "A broad 12-minute concept explainer is likely theory-heavy and potentially superficial, conflicting with the learner's preference for project-based content. Its metadata does not verify Vite, forms, hooks practice, or persistence."
-    },
-    {
-      "video_id": "V9i3cGD-mts",
-      "title": "Learn React Hooks: useState - Simply Explained!",
-      "rejection_category": "redundant",
-      "rejection_reason": "Its useState focus is relevant, but the selected project tutorial is assessed as covering the required state and event-handling work in context. This standalone explanation is less project-oriented and does not add forms, components, or persistence."
-    },
-    {
-      "video_id": "-KBS93RlUCY",
-      "title": "Handling Complex Multiple Input Form States in React [2 LINES ONLY]",
       "rejection_category": "low_relevance",
-      "rejection_reason": "Complex multiple-input form state is narrower and more advanced than the needs of the small app. It does not indicate coverage of the surrounding React project, CRUD state, or local persistence."
+      "rejection_reason": "The title suggests a broad 12-minute React overview, but the learner explicitly wants to avoid surface-level introductions. It does not provide evidence of project implementation or the required app capabilities."
     },
     {
-      "video_id": "rsqSAoOFmMI",
-      "title": "Learn the useState Hook for React",
+      "video_id": "SqcY0GlETPk",
+      "title": "React Tutorial for Beginners",
       "rejection_category": "redundant",
-      "rejection_reason": "It is another narrow useState introduction. The selected project spine already supplies useState in the context of the requested app, making this additional short explanation unnecessary."
+      "rejection_reason": "This is a substantial React beginner tutorial, but candidate 3 is a stronger project-based foundation aligned with the learner's stated preference. The title does not establish coverage of Vite, hooks with localStorage, habit-tracker behavior, testing, or deployment."
     },
     {
-      "video_id": "RDAFJ5ToMmQ",
-      "title": "Persist State to localStorage in React (Complete Tutorial)",
-      "rejection_category": "redundant",
-      "rejection_reason": "It focuses on localStorage persistence, which the selected project tutorial is already assessed as covering. It does not clearly add the missing CRUD, forms, filtering, or component work, so its marginal contribution is insufficient."
-    },
-    {
-      "video_id": "74ThcF5JqzU",
-      "title": "Custom React Local Storage Hook",
+      "video_id": "HnXPKtro4SM",
+      "title": "React Hooks in ONE Shot 2025 [ EASIEST Explanation ] | React JS Tutorial",
       "rejection_category": "learner_mismatch",
-      "rejection_reason": "A custom localStorage hook may introduce an unnecessary advanced abstraction for a first React weekend project. It also lacks evidence of covering the app's setup, components, forms, and CRUD workflow."
+      "rejection_reason": "The title focuses on explaining React hooks rather than building a project, which conflicts with the learner's project-based preference. It may also spend time on hooks beyond the weekend app's needs, while useEffect/localStorage coverage is not confirmed."
     },
     {
-      "video_id": "rWfhwW9forg",
-      "title": "Save State to LocalStorage & Persist on Refresh with React.js",
+      "video_id": "LOH1l-MP_9k",
+      "title": "ALL React Hooks Explained in 12 Minutes",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title indicates an all-hooks overview compressed into 12 minutes, conflicting with the learner's rejection of superficial introductions. It does not establish hands-on useEffect, localStorage, or habit-tracker implementation."
+    },
+    {
+      "video_id": "8Xwq35cPwYg",
+      "title": "React Testing for Beginners: Start Here!",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "Although it may cover React testing, its roughly 77-minute duration is substantial for a supplementary topic, and the title does not confirm Vitest or React Testing Library. Candidate 6 is a more targeted alternative because Vitest and Vite are explicit in its title."
+    },
+    {
+      "video_id": "snCLQmINqCU",
+      "title": "Vitest Simplified",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The under-five-minute title suggests a short orientation, which conflicts with the learner's preference to avoid surface-level material. It also does not establish React Testing Library or component and behavior testing."
+    },
+    {
+      "video_id": "JBSUgDxICg8",
+      "title": "Testing In React Tutorial - Jest and React Testing Library",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title explicitly mentions React Testing Library but specifies Jest rather than the requested Vitest. Candidate 6 is a closer tool match because Vitest is explicit in its title."
+    },
+    {
+      "video_id": "v8pgxdk8S5A",
+      "title": "🔥Day 41 - React 90 days Plan | React Unit Testing using Jest & Vitest | Complete Enterprise Testing🚀",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title frames the material as complete enterprise testing, which is disproportionate to the requested weekend-sized localStorage app and may introduce excluded production complexity. Candidate 6 is more appropriately scoped."
+    },
+    {
+      "video_id": "v-RWlyGGmOA",
+      "title": "Deploy React App | Deploy React to Netlify | React Deployment Tutorial",
       "rejection_category": "redundant",
-      "rejection_reason": "It provides another localStorage persistence treatment that overlaps with the selected project's assessed persistence coverage. Metadata does not establish a distinct useEffect or synchronization depth that would justify adding it."
+      "rejection_reason": "This is a brief Netlify deployment option, but candidate 11 already supplies a focused React production-deployment step with more substantial duration. The short candidate may be procedural or superficial, and Vite production-build coverage is not confirmed."
+    },
+    {
+      "video_id": "Y3yCB7CfjF4",
+      "title": "Deploying a Static Website with Vite + TypeScript",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title specifies TypeScript and a static website, while the learner's weekend scope does not include advanced TypeScript and the target is a plain React app. It may address Vite deployment, but it is not clearly a better fit than the selected React deployment resource."
+    },
+    {
+      "video_id": "Hv2htDHUckw",
+      "title": "How to Deploy MERN Stack Project on Vercel | Host Full Stack Frontend and Backend Free 🔥",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title focuses on deploying a full-stack MERN project, including backend hosting, while backend databases and APIs are explicitly excluded. It adds complexity unrelated to the localStorage-only app."
+    },
+    {
+      "video_id": "RTNd6uaBVZU",
+      "title": "GOOGLE AI STUDIO BLANK SCREEN PROBLEM ON VERCEL DEPLOYMENT",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title concerns a Google AI Studio-specific blank-screen problem on Vercel, with no clear evidence that it applies to a standard Vite React habit tracker. It does not address general project construction or the requested capabilities."
     }
   ],
   "covered_topics": [
-    "React app setup with Vite, development server, and basic project structure (provisional)",
-    "JSX, functional components, props, and basic component composition (provisional)",
-    "React state and event handling with useState for CRUD-like item operations (provisional)",
-    "Controlled form inputs and practical form submission (provisional)",
-    "useEffect and localStorage synchronization (provisional)",
-    "A small React project combining components, state, forms, filtering, and local persistence (provisional)"
+    "React and JSX fundamentals learned through a project, provisionally via candidate 3",
+    "Components, props, composition, and reusable component patterns, provisionally via candidate 3",
+    "React state with useState and derived state, provisionally via candidate 3",
+    "React component and behavior testing with Vitest, provisionally via candidate 6",
+    "Production deployment of a React app, provisionally via candidate 11"
   ],
   "uncovered_topics": [
-    "No required topic is confidently verified from transcript or content-level evidence; all coverage is based on title and supplied metadata assessments.",
-    "Safe localStorage synchronization details, including exact initial-load behavior and effect dependencies, remain unverified.",
-    "The selected project is a to-do app rather than explicitly a habit tracker, so habit-specific modeling and UX remain to be adapted by the learner."
+    "Vite setup, React development server, project structure, and production build are not directly verified",
+    "useEffect and synchronizing React state with browser localStorage",
+    "Controlled forms for adding and editing habits",
+    "Rendering lists, stable keys, conditional rendering, and empty states",
+    "Complete habit-tracker CRUD behavior: create, complete/uncomplete, edit, delete, and filter",
+    "Local-storage initialization, serialization, and malformed or missing-data handling",
+    "Basic React debugging with browser DevTools and React Developer Tools",
+    "Confirmed React Testing Library coverage and testing of this app's forms, persistence, and behavior",
+    "A complete weekend-sized habit-tracker build-along combining all required capabilities"
   ],
-  "total_duration_seconds": 1779,
+  "total_duration_seconds": 9186,
   "budget_seconds": 21600,
-  "remaining_budget_seconds": 19821,
+  "remaining_budget_seconds": 12414,
   "limitations": [
-    "The selected videos total approximately 30 minutes, well within the 360-minute budget; the short curriculum reflects the limited, overlapping candidate evidence rather than a need to fill the full budget.",
-    "Candidate 3 is only 160 seconds and may be too surface-level for reliable React fundamentals.",
-    "Candidate 4's title mentions dashboards and reminders, which may introduce scope beyond the requested small app.",
-    "No transcript or content-level verification was supplied, so the stated topic coverage should be checked while watching."
+    "The candidate pool contains no clearly identified habit-tracker build-along; candidate 3 is the closest project spine, but its project and feature set are unspecified.",
+    "All selected-video assessments rely on metadata because transcript retrieval was blocked, so topic coverage is provisional and should be verified before following the sequence.",
+    "The pool lacks a strong, explicitly project-based resource for controlled forms, localStorage synchronization and error handling, list rendering, filtering, and habit CRUD.",
+    "Testing is represented by a Vitest-focused candidate, but React Testing Library and behavior coverage are not confirmed by its title.",
+    "Debugging with browser DevTools and React Developer Tools is not represented by a clearly suitable candidate.",
+    "The learner will need to reserve substantial time for implementation and debugging because the selected resources do not collectively verify the complete application workflow."
   ]
 }

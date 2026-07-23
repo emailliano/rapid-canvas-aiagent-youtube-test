@@ -1,102 +1,144 @@
 import argparse
-import json
 from pathlib import Path
 
-from src.agent import assess_candidates_in_batches, create_search_plan
+from evaluation.evaluate import evaluate_curriculum
+from src.agent import (
+    assess_candidates_in_batches,
+    create_curriculum_draft,
+    create_search_plan,
+)
+from src.curriculum import finalize_curriculum
 from src.models import LearningRequest
-from src.youtube import get_video_evidence, search_multiple_queries
+from src.youtube import (
+    get_video_evidence,
+    search_multiple_queries,
+)
 
 
 def load_request(input_path: str) -> LearningRequest:
     path = Path(input_path)
 
     if not path.exists():
-        raise FileNotFoundError(f"Input file not found: {path}")
+        raise FileNotFoundError(
+            f"Input file not found: {path}"
+        )
 
-    return LearningRequest.model_validate_json(path.read_text(encoding="utf-8"))
+    return LearningRequest.model_validate_json(
+        path.read_text(encoding="utf-8")
+    )
+
+
+def format_duration(seconds: int) -> str:
+    minutes, remaining_seconds = divmod(seconds, 60)
+
+    if remaining_seconds:
+        return f"{minutes}m {remaining_seconds}s"
+
+    return f"{minutes}m"
+
+
+def save_result(
+    output_path: Path,
+    json_content: str,
+) -> None:
+    output_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+    output_path.write_text(
+        json_content,
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Build a personalized YouTube learning curriculum."
+        description=(
+            "Build and evaluate a personalized "
+            "YouTube learning curriculum."
+        )
     )
     parser.add_argument(
         "--input",
         required=True,
-        help="Path to a learner scenario JSON file.",
+        help="Path to a learner-scenario JSON file.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="outputs",
+        help="Directory for generated artifacts.",
     )
     args = parser.parse_args()
 
     request = load_request(args.input)
+    output_dir = (
+        Path(args.output_dir) / request.persona_id
+    )
 
     print(f"\nPersona: {request.persona_id}")
     print(f"Goal: {request.goal}")
-    print(f"Time budget: {request.time_budget_minutes} minutes")
+    print(
+        f"Budget: {request.time_budget_minutes} minutes"
+    )
 
-    print("\nCreating search plan...")
+    print("\n1. Creating a personalized search plan...")
     plan = create_search_plan(request)
-
-    print("\nRequired topics:")
-    for topic in plan.required_topics:
-        print(f"- {topic}")
-
-    print("\nExcluded topics:")
-    for topic in plan.excluded_topics:
-        print(f"- {topic}")
 
     print("\nSearch queries:")
     for query in plan.search_queries:
         print(f"- {query}")
 
-    print("\nSearching YouTube...")
-    candidates = search_multiple_queries(
+    print("\n2. Discovering YouTube candidates...")
+    discovered_candidates = search_multiple_queries(
         plan.search_queries,
-        results_per_query=3,
+        results_per_query=5,
     )
 
-    print(f"\nDiscovered {len(candidates)} unique candidates:")
-    for candidate in candidates:
-        duration = (
-            f"{candidate.duration_seconds // 60} min"
-            if candidate.duration_seconds is not None
-            else "unknown duration"
-        )
-        print(f"- [{duration}] {candidate.title}")
-    maximum_duration_seconds = request.time_budget_minutes * 60
-
-    duration_rejected = [
-        candidate
-        for candidate in candidates
-        if (
-            candidate.duration_seconds is not None
-            and candidate.duration_seconds > maximum_duration_seconds
-        )
-    ]
+    budget_seconds = request.time_budget_minutes * 60
 
     candidates = [
         candidate
-        for candidate in candidates
+        for candidate in discovered_candidates
         if (
-            candidate.duration_seconds is None
-            or candidate.duration_seconds <= maximum_duration_seconds
+            candidate.duration_seconds is not None
+            and candidate.duration_seconds <= budget_seconds
         )
     ]
 
-    if duration_rejected:
-        print("\nRejected before assessment because duration exceeds budget:")
-        for candidate in duration_rejected:
-            print(
-                f"- [{candidate.duration_seconds // 60} min] "
-                f"{candidate.title}"
-            )
+    excluded_before_assessment = [
+        candidate
+        for candidate in discovered_candidates
+        if candidate not in candidates
+    ]
 
     print(
-        f"\n{len(candidates)} candidates remain eligible "
-        f"for assessment."
+        f"Discovered {len(discovered_candidates)} unique videos; "
+        f"{len(candidates)} have a known duration and can fit "
+        "inside the total budget."
     )
-    print("\nRetrieving evidence...")
+
+    if excluded_before_assessment:
+        print("\nExcluded before assessment:")
+
+        for candidate in excluded_before_assessment:
+            duration = (
+                format_duration(candidate.duration_seconds)
+                if candidate.duration_seconds is not None
+                else "unknown duration"
+            )
+            print(f"- [{duration}] {candidate.title}")
+
+    if not candidates:
+        raise RuntimeError(
+            "No eligible YouTube candidates were discovered."
+        )
+
+    print("\n3. Retrieving the best available evidence...")
     evidence = [
-        get_video_evidence(candidate, max_characters=6_000)
+        get_video_evidence(
+            candidate,
+            max_characters=6_000,
+        )
         for candidate in candidates
     ]
 
@@ -110,90 +152,101 @@ def main() -> None:
     )
 
     print(
-        f"Evidence retrieved: {transcript_count} transcripts, "
-        f"{metadata_count} metadata fallbacks"
+        f"Evidence: {transcript_count} transcripts, "
+        f"{metadata_count} metadata fallbacks."
     )
 
-    batch_size = 5
-    checkpoint_path = Path("tmp/assessment_context.json")
-    checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
-
-    checkpoint_payload = {
-        "request": request.model_dump(),
-        "search_plan": plan.model_dump(),
-        "candidates": [
-            candidate.model_dump()
-            for candidate in candidates
-        ],
-        "evidence": [
-            item.model_dump()
-            for item in evidence
-        ],
-    }
-
-    checkpoint_path.write_text(
-        json.dumps(checkpoint_payload, indent=2),
-        encoding="utf-8",
-    )
-
-    print(
-        f"Assessment checkpoint saved to {checkpoint_path}"
-    )
-
-    print(
-        f"\nAssessing {len(candidates)} candidates "
-        f"in batches of up to {batch_size}..."
-    )
-
-    assessment_batch = assess_candidates_in_batches(
+    print("\n4. Assessing candidates...")
+    assessments = assess_candidates_in_batches(
         request=request,
         plan=plan,
         candidates=candidates,
         evidence=evidence,
-        batch_size=batch_size,
+        batch_size=5,
     )
 
-    candidate_by_id = {
-        candidate.video_id: candidate
-        for candidate in candidates
-    }
-
-    ranked_assessments = sorted(
-        assessment_batch.assessments,
-        key=lambda assessment: (
-            assessment.relevance_score
-            + assessment.learner_fit_score
-            + assessment.constraint_fit_score
-        ),
-        reverse=True,
+    print("\n5. Selecting a complementary curriculum...")
+    draft = create_curriculum_draft(
+        request=request,
+        plan=plan,
+        candidates=candidates,
+        assessments=assessments,
     )
 
-    print("\nCandidate assessments:")
+    curriculum = finalize_curriculum(
+        request=request,
+        candidates=candidates,
+        assessments=assessments,
+        draft=draft,
+    )
 
-    for assessment in ranked_assessments:
-        candidate = candidate_by_id[assessment.video_id]
-        average_score = (
-            assessment.relevance_score
-            + assessment.learner_fit_score
-            + assessment.constraint_fit_score
-        ) / 3
+    print("\n6. Evaluating the curriculum...")
+    evaluation = evaluate_curriculum(
+        request=request,
+        curriculum=curriculum,
+        expected_candidate_count=len(candidates),
+    )
 
-        print(f"\n- {candidate.title}")
-        print(f"  Average score: {average_score:.1f}/10")
+    save_result(
+        output_dir / "search_plan.json",
+        plan.model_dump_json(indent=2),
+    )
+    save_result(
+        output_dir / "candidate_assessments.json",
+        assessments.model_dump_json(indent=2),
+    )
+    save_result(
+        output_dir / "curriculum.json",
+        curriculum.model_dump_json(indent=2),
+    )
+    save_result(
+        output_dir / "evaluation.json",
+        evaluation.model_dump_json(indent=2),
+    )
+
+    print(f"\n{curriculum.title}")
+    print(
+        f"Duration: "
+        f"{format_duration(curriculum.total_duration_seconds)} "
+        f"of {request.time_budget_minutes}m"
+    )
+
+    print("\nSelected videos:")
+
+    for video in curriculum.selected_videos:
         print(
-            "  Scores: "
-            f"relevance={assessment.relevance_score}, "
-            f"learner_fit={assessment.learner_fit_score}, "
-            f"constraint_fit={assessment.constraint_fit_score}"
+            f"\n{video.order}. {video.title} "
+            f"({format_duration(video.duration_seconds)})"
         )
+        print(f"   Role: {video.curriculum_role}")
+        print(f"   Reason: {video.inclusion_reason}")
         print(
-            f"  Evidence: {assessment.evidence_source}, "
-            f"confidence={assessment.confidence:.2f}"
+            f"   Evidence: {video.evidence_source}, "
+            f"confidence={video.confidence:.2f}"
         )
-        print(f"  Reason: {assessment.inclusion_reason}")
+        print(f"   URL: {video.url}")
 
-        if assessment.concerns:
-            print(f"  Concerns: {'; '.join(assessment.concerns)}")
+    flagged_checks = [
+        check
+        for check in evaluation.checks
+        if not check.passed
+    ]
+
+    print(
+        f"\nTechnical validity: "
+        f"{'PASS' if evaluation.overall_passed else 'FAIL'}"
+    )
+
+    if flagged_checks:
+        print("\nEvaluation flags:")
+
+        for check in flagged_checks:
+            print(
+                f"- [{check.severity}] "
+                f"{check.name}: {check.detail}"
+            )
+
+    print(f"\nArtifacts saved to: {output_dir}")
 
 
 if __name__ == "__main__":

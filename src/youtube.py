@@ -2,9 +2,6 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from yt_dlp import YoutubeDL
 
 from src.models import VideoCandidate, VideoEvidence
-from yt_dlp import YoutubeDL
-
-from src.models import VideoCandidate
 
 
 def search_youtube(query: str, max_results: int = 5) -> list[VideoCandidate]:
@@ -42,6 +39,7 @@ def search_youtube(query: str, max_results: int = 5) -> list[VideoCandidate]:
 
     return candidates
 
+
 def search_multiple_queries(
     queries: list[str],
     results_per_query: int = 5,
@@ -56,6 +54,8 @@ def search_multiple_queries(
                 unique_candidates[candidate.video_id] = candidate
 
     return list(unique_candidates.values())
+
+
 def get_video_evidence(
     candidate: VideoCandidate,
     max_characters: int = 12_000,

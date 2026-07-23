@@ -271,6 +271,8 @@ def evaluate_curriculum(
             ),
         },
     )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Evaluate a generated learning curriculum."

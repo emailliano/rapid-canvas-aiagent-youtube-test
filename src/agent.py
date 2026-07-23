@@ -34,13 +34,26 @@ Determine:
 3. Between 3 and 6 complementary YouTube search queries.
 
 The queries should collectively discover:
-- necessary setup or prerequisites,
-- practical instruction for the central skills,
-- project-based content aligned with the learner's goal.
+- one substantial foundation or build-along resource,
+- necessary setup and development tooling,
+- practical instruction for the learner's specific knowledge gaps,
+- one complete project closely aligned with the learner's goal,
+- targeted supplements for important capabilities the project may omit,
+- testing, debugging, or deployment guidance when relevant.
 
+Prefer queries that name concrete technologies, project features, and missing
+skills. Avoid producing several queries that are minor variations of the same
+topic. Use the learner's full time budget as a planning constraint: search for
+enough complementary material to support both learning and implementation.
 Do not search for topics the learner already knows unless they are inseparable
 from the requested project. Make queries specific enough to reduce irrelevant
 results.
+
+For a software project, decompose the goal into observable implementation
+capabilities. For example: environment setup, application structure, state,
+forms or user input, rendering, persistence, core CRUD behavior, testing, and
+the production build. Search for missing capabilities explicitly instead of
+assuming that a general tutorial covers them.
 """.strip()
 
     response = client.responses.parse(
@@ -138,10 +151,12 @@ Important evidence rules:
   being omitted.
 - Do not select a final curriculum yet. Only assess candidates independently.
 """.strip()
+
     print(
         f"Sending {len(candidate_payload)} candidates "
         "to the assessment model."
     )
+
     response = client.responses.parse(
         model=model,
         instructions=instructions,
@@ -270,6 +285,8 @@ def assess_candidates_in_batches(
     return CandidateAssessmentBatch(
         assessments=all_assessments
     )
+
+
 def create_curriculum_draft(
     request: LearningRequest,
     plan: SearchPlan,
@@ -329,9 +346,15 @@ already-assessed candidate pool.
 Select a complementary subset and arrange it in pedagogical order.
 
 Selection principles:
-- Prefer 4 to 6 videos when the candidate pool and time budget justify it.
-- A smaller curriculum is acceptable when additional videos would be redundant,
-  poorly supported, or unnecessary.
+- Aim for 4 to 6 complementary videos when suitable candidates are available.
+- Try to use a meaningful portion of the learning budget, generally 40% to 70%
+  for video instruction in a practical project curriculum, while preserving
+  enough time for hands-on implementation and debugging.
+- A smaller curriculum is acceptable only when additional candidates are
+  redundant, irrelevant, constraint-violating, or too weakly supported.
+- Before finalizing, compare the selected set with every required topic and
+  prefer a useful gap-filling candidate over leaving an important capability
+  uncovered.
 - Do not select by average score alone.
 - Consider relevance, learner fit, constraint fit, duration, evidence quality,
   required-topic coverage, sequencing, and marginal contribution.
@@ -341,6 +364,13 @@ Selection principles:
   needed around it.
 - Do not exceed the learner's time budget.
 - Do not add a weak video merely to consume unused time.
+- Respect the learner's preference about superficial or compressed content.
+- When the learner rejects surface-level introductions, do not select a video
+  shorter than 5 minutes unless its metadata clearly indicates a concrete,
+  narrowly scoped, hands-on task rather than an overview or orientation.
+- If a short candidate does not meet that exception, prefer a more substantial
+  alternative. If no suitable alternative exists, leave the topic uncovered
+  and explain the limitation rather than selecting superficial material.
 - Use only supplied candidates.
 - Use candidate_number exactly as provided.
 
@@ -351,7 +381,18 @@ Reasoning requirements:
 - inclusion reasons must remain grounded in the supplied evidence.
 - Treat metadata-based coverage as provisional.
 - Every unselected eligible candidate must appear once in rejected_videos.
-- Explicitly identify required topics that remain uncovered or unverified.
+- For metadata-only evidence, claim only what is directly supported by the
+  title, channel, and duration. Do not treat discovery queries or assessment
+  inferences as proof of video content.
+- Metadata-based inclusion reasons must use cautious language such as
+  "the title suggests," "the title focuses on," or "this should be verified."
+- Do not claim that a general title covers specific concepts unless those
+  concepts appear explicitly in the supplied metadata.
+- Do not write calculated total watch times, remaining minutes, or budget
+  percentages inside titles, reasons, or limitations. Python will calculate
+  and report those values deterministically.
+- If important topics remain uncovered, explain whether this is caused by the
+  candidate pool, weak evidence, redundancy, or a learner constraint.
 """.strip()
 
     client = OpenAI()
