@@ -1,0 +1,26 @@
+{
+  "persona_id": "python_data_science_beginner",
+  "goal": "Learn Python basics for data science by completing a small exploratory data analysis project with a real dataset",
+  "time_budget_minutes": 420,
+  "user_context": {
+    "background": "Business analyst with strong spreadsheet experience and basic statistics knowledge, but no programming experience",
+    "known": [
+      "Spreadsheet formulas and pivot tables",
+      "Basic descriptive statistics",
+      "Reading tables and charts",
+      "General data-cleaning concepts"
+    ],
+    "unknown": [
+      "Python syntax and data types",
+      "Variables, lists, dictionaries, loops, and functions",
+      "Jupyter Notebook workflow",
+      "NumPy fundamentals",
+      "pandas DataFrames",
+      "Loading and cleaning CSV data",
+      "Filtering, grouping, and aggregating data",
+      "Basic data visualization with Matplotlib",
+      "Statistical visualization with Seaborn"
+    ],
+    "constraints": "I prefer beginner-friendly, project-based content using a real dataset without requiring a specific business or scientific domain. Avoid advanced machine learning, deep mathematical theory, software engineering patterns, and long environment-configuration lectures. The curriculum should combine essential Python, basic NumPy, pandas, Matplotlib, and Seaborn, and lead to one small exploratory data analysis notebook I can complete myself."
+  }
+}

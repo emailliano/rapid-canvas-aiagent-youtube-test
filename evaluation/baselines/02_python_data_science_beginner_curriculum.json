@@ -1,0 +1,256 @@
+{
+  "persona_id": "python_data_science_beginner",
+  "title": "Beginner Python Data Science EDA Curriculum",
+  "selected_videos": [
+    {
+      "video_id": "2WL-XTl2QYI",
+      "title": "Jupyter Notebook Tutorial for Beginners with Python",
+      "url": "https://www.youtube.com/watch?v=2WL-XTl2QYI",
+      "duration_seconds": 934,
+      "order": 1,
+      "curriculum_role": "Concise notebook setup and workflow orientation before beginning the analysis.",
+      "added_topics": [
+        "Python environment and Jupyter Notebook workflow with concise setup",
+        "Reading and modifying notebook cells, displaying results, and writing explanatory markdown"
+      ],
+      "inclusion_reason": "The title indicates a beginner-oriented Python Jupyter Notebook tutorial, making it a suitable first step for learning the notebook workflow. Coverage of markdown, saving, and reproducibility should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "r-uOLxNrNk8",
+      "title": "Data Analysis with Python - Full Course for Beginners (Numpy, Pandas, Matplotlib, Seaborn)",
+      "url": "https://www.youtube.com/watch?v=r-uOLxNrNk8",
+      "duration_seconds": 15733,
+      "order": 2,
+      "curriculum_role": "Primary beginner data-analysis foundation covering the core scientific Python stack.",
+      "added_topics": [
+        "NumPy fundamentals",
+        "pandas foundations",
+        "Matplotlib charts",
+        "Seaborn statistical visualizations"
+      ],
+      "inclusion_reason": "The title explicitly names NumPy, pandas, Matplotlib, and Seaborn and identifies the course as beginner-oriented. It should provide the broadest foundation for the requested EDA work, although Python syntax, cleaning details, notebook documentation, and project completeness should be verified from the video.",
+      "evidence_source": "metadata",
+      "confidence": 0.55
+    },
+    {
+      "video_id": "GD10MkJjyhk",
+      "title": "Pandas Project for Beginners | CSV Dataset Cleaning & Analysis in Google Colab",
+      "url": "https://www.youtube.com/watch?v=GD10MkJjyhk",
+      "duration_seconds": 1216,
+      "order": 3,
+      "curriculum_role": "Primary hands-on project spine for applying pandas to a real CSV dataset.",
+      "added_topics": [
+        "Importing and cleaning CSV data",
+        "Exploratory analysis with a dataset",
+        "Google Colab notebook workflow"
+      ],
+      "inclusion_reason": "The title directly identifies a beginner project involving a CSV dataset, cleaning, and analysis. This closely matches the learner's goal of completing a small EDA project, though the dataset, visualizations, and depth of the analysis should be verified. Colab is a reasonable notebook environment, but it is not identical to local Jupyter.",
+      "evidence_source": "metadata",
+      "confidence": 0.52
+    },
+    {
+      "video_id": "vmEHCJofslg",
+      "title": "Complete Python Pandas Data Science Tutorial! (Reading CSV/Excel files, Sorting, Filtering, Groupby)",
+      "url": "https://www.youtube.com/watch?v=vmEHCJofslg",
+      "duration_seconds": 3627,
+      "order": 4,
+      "curriculum_role": "Implementation gap-filler for practical tabular-data operations used during EDA.",
+      "added_topics": [
+        "Importing CSV files",
+        "Sorting data",
+        "Filtering rows",
+        "Grouping and aggregating data"
+      ],
+      "inclusion_reason": "The title explicitly identifies CSV/Excel reading, sorting, filtering, and groupby operations. These are important implementation capabilities that the short project video may not cover deeply. Excel material may be unnecessary, so the learner can focus on the CSV and pandas portions.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    }
+  ],
+  "rejected_videos": [
+    {
+      "video_id": "xECXZ3tyONo",
+      "title": "Learn NUMPY in 5 minutes - BEST Python Library!",
+      "rejection_category": "insufficient_evidence",
+      "rejection_reason": "The title suggests an introductory NumPy lesson, but the approximately 14-minute format does not verify the required arrays, shapes, indexing, and descriptive calculations. Candidate 13 provides broader explicit coverage of NumPy within the data-analysis stack."
+    },
+    {
+      "video_id": "5pf0_bpNbkw",
+      "title": "Jupyter Notebook Complete Beginner Guide - From Jupyter to Jupyterlab, Google Colab and Kaggle!",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title suggests coverage of several notebook environments, including JupyterLab, Colab, and Kaggle. That breadth is less aligned with the learner's preference for concise setup and adds redundancy with candidate 2."
+    },
+    {
+      "video_id": "D4VlmL3G4_o",
+      "title": "HOW TO USE Matplotlib in 4 MINUTES (2020 Python Tutorial)",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The four-minute title suggests a highly compressed Matplotlib overview. The learner rejects superficial introductions, and candidate 13 explicitly includes Matplotlib in a substantial beginner data-analysis course."
+    },
+    {
+      "video_id": "dcqPhpY7tWk",
+      "title": "What is Pandas? Why and How to Use Pandas in Python",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title suggests a general pandas introduction, but candidate 13 provides broader explicit data-analysis-stack coverage and candidate 18 provides more specifically named pandas operations."
+    },
+    {
+      "video_id": "LKFrQXaoSMQ",
+      "title": "Python variables for beginners ❎",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses only on Python variables. It would contribute too little to the project relative to the broader foundation in candidate 13."
+    },
+    {
+      "video_id": "rfscVS0vtbw",
+      "title": "Learn Python - Full Course for Beginners [Tutorial]",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title indicates a 267-minute general Python course, which would consume most of the curriculum while not explicitly addressing the requested data-science libraries or EDA project."
+    },
+    {
+      "video_id": "_uQrJ0TkZlc",
+      "title": "Python Full Course for Beginners",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The approximately 374-minute general Python course would leave insufficient room for the required data-science stack and project, and its metadata does not identify Jupyter, pandas, visualization, or EDA."
+    },
+    {
+      "video_id": "Ro_MScTDfU4",
+      "title": "Learn Python in Only 30 Minutes (Beginner Tutorial)",
+      "rejection_category": "insufficient_evidence",
+      "rejection_reason": "The title suggests a concise Python overview, but its coverage is not specific enough to establish the full syntax and data-structure foundation needed for this project. Candidate 13 is a stronger data-science-oriented foundation."
+    },
+    {
+      "video_id": "94UHCEmprCY",
+      "title": "Python For Loops - Python Tutorial for Absolute Beginners",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses only on for loops and does not provide enough incremental support for the EDA goal."
+    },
+    {
+      "video_id": "xi0vhXFPegw",
+      "title": "Exploratory Data Analysis with Pandas Python",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title suggests a pandas EDA tutorial, but candidate 17 is a more directly project-oriented CSV cleaning and analysis resource, while candidate 13 supplies the broader stack."
+    },
+    {
+      "video_id": "Liv6eeb1VfE",
+      "title": "Exploratory Data Analysis in Pandas | Python Pandas Tutorials",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title suggests a focused pandas EDA tutorial, but it overlaps with the project spine in candidate 17 and the broader EDA coverage suggested by candidate 13 without adding a clearly distinct capability."
+    },
+    {
+      "video_id": "R67XuYc9NQ4",
+      "title": "Economic Data Analysis Project with Python Pandas - Data scraping, cleaning and exploration!",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title identifies an economic-data project with scraping. The domain-specific focus and unnecessary scraping component conflict with the learner's preference for a domain-independent small EDA project."
+    },
+    {
+      "video_id": "4sZFkPw87ng",
+      "title": "Data Analyst Portfolio Project (Exploratory Data Analysis With Python Pandas)",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title suggests a portfolio-style pandas EDA project, but candidate 17 is more explicitly beginner-oriented and centered on CSV cleaning and analysis, which better matches the requested learning project."
+    },
+    {
+      "video_id": "bDhvCp3_lYw",
+      "title": "Data Cleaning in Pandas | Python Pandas Tutorials",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title focuses on pandas data cleaning, but candidate 17 already explicitly combines CSV cleaning with exploratory analysis. Adding this separate cleaning lesson would provide limited marginal coverage."
+    },
+    {
+      "video_id": "kB7FV-ijdqE",
+      "title": "Filtering Columns and Rows in Pandas | Python Pandas Tutorials",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title identifies filtering rows and columns, but candidate 18 explicitly includes filtering within a broader set of CSV, sorting, grouping, and aggregation operations."
+    },
+    {
+      "video_id": "EXIgjIBu4EU",
+      "title": "Learn Pandas in 30 Minutes - Python Pandas Tutorial",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title suggests a general pandas overview without naming the specific operations needed. Candidate 18 provides more explicit implementation coverage, and candidate 13 covers pandas in the broader stack."
+    },
+    {
+      "video_id": "VRmXto2YA2I",
+      "title": "Group By and Aggregate Functions in Pandas | Python Pandas Tutorials",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title focuses narrowly on groupby and aggregation, which are explicitly included in candidate 18's broader pandas operations tutorial."
+    },
+    {
+      "video_id": "xPPs59pn6qU",
+      "title": "Python Pandas Tutorial 10. Pivot table",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on pandas pivot tables, closely matching a spreadsheet skill the learner already knows. It adds less value than candidate 18's broader filtering, sorting, and groupby coverage."
+    },
+    {
+      "video_id": "4YI9z1qUpew",
+      "title": "How to Read a CSV file into a Pandas DataFrame | Pandas Tutorial for Beginners",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title identifies CSV loading into a DataFrame, but candidate 17 explicitly includes CSV dataset work and candidate 18 explicitly includes CSV reading. The three-minute format also suggests limited depth."
+    },
+    {
+      "video_id": "VXU4LSAQDSc",
+      "title": "Learn NumPy in 1 hour! 🔢",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title suggests a full one-hour NumPy course, which is broader and longer than needed for the requested beginner EDA. Candidate 13 explicitly includes NumPy alongside the rest of the required stack."
+    },
+    {
+      "video_id": "b4p-SBjHh28",
+      "title": "Debugging Python with Visual Studio Code (VSCode)",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on debugging with Visual Studio Code, while the learner's workflow is centered on Jupyter or a notebook environment. It does not specifically identify pandas or notebook debugging."
+    },
+    {
+      "video_id": "XmpIBsnc3xU",
+      "title": "Stop Using print(): Learn the VSCode Debugger",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on the VSCode debugger and does not establish relevance to Jupyter, pandas errors, or the learner's immediate EDA tasks."
+    },
+    {
+      "video_id": "urrfJgHwIJA",
+      "title": "Python Logging - Tutorial",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses on Python logging, which is not central to a small beginner EDA notebook and is less useful than the selected foundation and implementation resources."
+    },
+    {
+      "video_id": "JG1livF44_E",
+      "title": "10 Python Errors Explained In 15 Minutes",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title suggests useful common-error coverage, but debugging is a supporting topic and this resource does not address pandas or notebook-specific problems. The selected videos better establish the required foundation and project spine."
+    },
+    {
+      "video_id": "6KQ_h0XBmxk",
+      "title": "How to Debug Your Python Code with the Python Debugger (pdb)",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on the pdb debugger, which may be unnecessarily advanced for this beginner notebook project and does not identify pandas or Jupyter debugging."
+    }
+  ],
+  "covered_topics": [
+    "Python environment and Jupyter Notebook workflow with concise setup",
+    "Reading and modifying notebook cells, displaying results, and writing explanatory markdown",
+    "NumPy fundamentals",
+    "pandas DataFrames and Series",
+    "Importing CSV files",
+    "Inspecting and selecting tabular data",
+    "Sorting and filtering data",
+    "Grouping and aggregating data",
+    "Data cleaning and exploratory analysis with a dataset",
+    "Matplotlib charts",
+    "Seaborn statistical visualizations",
+    "Combining code and analysis in a notebook project"
+  ],
+  "uncovered_topics": [
+    "Python syntax, variables, strings, numbers, booleans, and basic data types are not explicitly confirmed by the selected metadata.",
+    "Lists, dictionaries, indexing, slicing, loops, conditionals, and functions are not explicitly confirmed by the selected metadata.",
+    "The exact NumPy coverage of shapes, indexing, and descriptive calculations should be verified.",
+    "Specific cleaning operations for missing values, duplicates, incorrect types, and renamed columns are not confirmed.",
+    "The selected metadata does not explicitly confirm all requested chart types or interpretation of findings.",
+    "Basic debugging of Python and pandas errors and systematic verification of intermediate results are not directly covered by a selected title.",
+    "Saving the finished notebook and cleaned or source data for reproducible sharing is not confirmed.",
+    "The selected project uses Google Colab according to its title, so transfer to a local Jupyter workflow may require independent practice."
+  ],
+  "total_duration_seconds": 21510,
+  "budget_seconds": 25200,
+  "remaining_budget_seconds": 3690,
+  "limitations": [
+    "The pool contains no clearly evidenced, appropriately scoped Python fundamentals course that also fits naturally with the EDA project and time constraints.",
+    "The strongest broad foundation, candidate 13, is metadata-only; its actual sequence and coverage of Python prerequisites should be checked before relying on it for all fundamentals.",
+    "No selected resource explicitly establishes complete reproducible sharing, debugging, or every requested data-cleaning operation.",
+    "Additional candidates were not added because they were either narrow, redundant with the selected project and pandas implementation resource, domain-specific, environment-mismatched, or insufficiently evidenced."
+  ]
+}
