@@ -1,0 +1,34 @@
+{
+  "persona_id": "python_rag_application",
+  "goal": "Build a working retrieval-augmented generation application in Python that answers questions from a small collection of documents and returns answers grounded in the retrieved source material",
+  "time_budget_minutes": 420,
+  "user_context": {
+    "background": "Python backend developer with experience building APIs and integrating external services, but without practical experience developing LLM or retrieval-augmented generation applications",
+    "known": [
+      "Python programming",
+      "Functions, classes, and modules",
+      "Virtual environments and package installation",
+      "HTTP and REST APIs",
+      "JSON",
+      "Basic SQL",
+      "Git",
+      "Command-line tools"
+    ],
+    "unknown": [
+      "Large language model application architecture",
+      "Retrieval-augmented generation workflows",
+      "Document loading and text extraction",
+      "Text chunking and chunk overlap",
+      "Embeddings",
+      "Vector similarity search",
+      "Vector stores",
+      "Retrieval configuration",
+      "Prompt construction using retrieved context",
+      "Grounded answers and source citations",
+      "RAG evaluation",
+      "Debugging retrieval failures",
+      "Managing API keys safely"
+    ],
+    "constraints": "I prefer project-based, implementation-focused content that builds a complete small RAG application in Python. The project should ingest a modest collection of local documents, split and embed their text, retrieve relevant chunks, send grounded context to a language model, and show the source material used for an answer. Include simple retrieval testing or evaluation. Prefer direct explanations of the underlying RAG steps before introducing frameworks. A lightweight framework or vector store may be used, but avoid framework-only tutorials that hide the ingestion and retrieval process. Avoid Python beginner courses, general prompt-engineering lectures, fine-tuning, advanced autonomous agents, large production architectures, Kubernetes, and complex cloud deployment."
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "persona_id": "python_rag_application",
+  "title": "Python RAG Application Curriculum",
+  "selected_videos": [
+    {
+      "video_id": "sVcwVQRHIc8",
+      "title": "Learn RAG From Scratch – Python AI Tutorial from a LangChain Engineer",
+      "url": "https://www.youtube.com/watch?v=sVcwVQRHIc8",
+      "duration_seconds": 9191,
+      "order": 1,
+      "curriculum_role": "Primary conceptual foundation and broad RAG implementation spine",
+      "added_topics": [
+        "LLM application architecture in Python",
+        "End-to-end retrieval-augmented generation workflow",
+        "Embedding generation and model selection",
+        "Vector stores and similarity search",
+        "Prompt construction with retrieved context",
+        "Lightweight framework use while exposing core RAG mechanics"
+      ],
+      "inclusion_reason": "The title explicitly presents a long, from-scratch Python RAG tutorial from a LangChain engineer. It is the strongest available foundation and project spine for understanding the workflow before relying on framework abstractions; exact coverage should be verified because evidence is metadata-only.",
+      "evidence_source": "metadata",
+      "confidence": 0.53
+    },
+    {
+      "video_id": "pIGRwMjhMaQ",
+      "title": "Chunking Strategies in RAG: Optimising Data for Advanced AI Responses",
+      "url": "https://www.youtube.com/watch?v=pIGRwMjhMaQ",
+      "duration_seconds": 842,
+      "order": 2,
+      "curriculum_role": "Focused preprocessing gap-filler for preparing retrievable text",
+      "added_topics": [
+        "Text chunking",
+        "Chunk size and overlap considerations"
+      ],
+      "inclusion_reason": "The title directly focuses on chunking strategies in RAG, filling an important implementation gap that the broad tutorial may not explain in sufficient depth. Python implementation details and exact examples should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.46
+    },
+    {
+      "video_id": "ZCSsIkyCZk4",
+      "title": "FAISS Vector Library with LangChain and OpenAI (Semantic Search)",
+      "url": "https://www.youtube.com/watch?v=ZCSsIkyCZk4",
+      "duration_seconds": 1200,
+      "order": 3,
+      "curriculum_role": "Concrete retrieval implementation and vector-search gap-filler",
+      "added_topics": [
+        "Practical semantic search with FAISS",
+        "Vector-search implementation details",
+        "LangChain and FAISS integration with an LLM provider"
+      ],
+      "inclusion_reason": "The title identifies FAISS, LangChain, OpenAI, and semantic search, suggesting a concrete implementation resource for the embedding and vector-retrieval portion of the application. Its treatment of chunking, citations, and evaluation should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "tcqEUSNCn8I",
+      "title": "RAG + Langchain Python Project: Easy AI/Chat For Your Docs",
+      "url": "https://www.youtube.com/watch?v=tcqEUSNCn8I",
+      "duration_seconds": 1002,
+      "order": 4,
+      "curriculum_role": "Small document-question-answering project application",
+      "added_topics": [
+        "Local document ingestion and text extraction",
+        "Document-focused RAG application flow",
+        "Running a small document chat application"
+      ],
+      "inclusion_reason": "The title explicitly describes a Python LangChain project for chatting with documents, making it a suitable practical application around the conceptual and retrieval foundations. The title does not confirm source citations or whether ingestion mechanics are fully exposed, so those should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
+    },
+    {
+      "video_id": "2TJxpyO3ei4",
+      "title": "Python RAG Tutorial (with Local LLMs): AI For Your PDFs",
+      "url": "https://www.youtube.com/watch?v=2TJxpyO3ei4",
+      "duration_seconds": 1293,
+      "order": 5,
+      "curriculum_role": "Alternative local-document project for grounded question answering",
+      "added_topics": [
+        "PDF-oriented local document workflow",
+        "Text chunking in a document QA application",
+        "Local language-model-based grounded answering"
+      ],
+      "inclusion_reason": "The title explicitly combines Python, RAG, PDFs, local language models, document ingestion, chunking, embeddings, and vector stores according to the supplied assessment. It adds a concrete local-document perspective, although citations and retrieval configuration are not confirmed by metadata.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
+    },
+    {
+      "video_id": "JEBDfGqrAUA",
+      "title": "Vector Search RAG Tutorial – Combine Your Data with LLMs with Advanced Search",
+      "url": "https://www.youtube.com/watch?v=JEBDfGqrAUA",
+      "duration_seconds": 4307,
+      "order": 6,
+      "curriculum_role": "Substantial reinforcement of vector-search RAG integration",
+      "added_topics": [
+        "Combining private data with an LLM",
+        "Broader vector-search RAG integration"
+      ],
+      "inclusion_reason": "The title focuses on vector-search RAG and combining private data with LLMs, providing additional depth around the central retrieval-to-generation pipeline. It is included only as supporting reinforcement; its advanced-search framing and fit for a lightweight local project should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
+    }
+  ],
+  "rejected_videos": [
+    {
+      "video_id": "JfSmffOyV-8",
+      "title": "Build a RAG in 10 minutes! | Python, ChromaDB, OpenAI",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title suggests a very short Python RAG build, but the supplied concerns indicate it may be superficial and omit chunking, citations, evaluation, and debugging. More substantial selected resources better match the learner's rejection of compressed introductions."
+    },
+    {
+      "video_id": "ySus5ZS0b94",
+      "title": "OpenAI Embeddings and Vector Databases Crash Course",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title focuses on embeddings and vector databases, but candidate 10 provides a more concrete semantic-search implementation and the selected backbone already addresses these topics. This crash-course resource would add limited marginal coverage."
+    },
+    {
+      "video_id": "71XiFBhqqvU",
+      "title": "Build RAG Pipeline using Langchain + Databricks + Azure OpenAI + Chromadb Tutorial #databricks",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The Databricks and Azure OpenAI focus conflicts with the learner's preference for a small local application and avoidance of complex cloud-oriented material."
+    },
+    {
+      "video_id": "8c5tw3qEq1s",
+      "title": "Build a Semantic Search Engine From Scratch in Python",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title suggests a from-scratch semantic-search implementation, but candidate 10 supplies a more explicitly identified FAISS, LangChain, and OpenAI retrieval implementation while the selected resources already cover core retrieval mechanics."
+    },
+    {
+      "video_id": "dN0lsF2cvm4",
+      "title": "Vector Databases simply explained! (Embeddings & Indexes)",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The short explanatory title suggests a superficial conceptual treatment rather than the hands-on implementation requested. Its embeddings and vector-database topics are also covered more usefully by selected implementation resources."
+    },
+    {
+      "video_id": "o126p1QN_RI",
+      "title": "Complete RAG Crash Course With Langchain In 2 Hours",
+      "rejection_category": "redundant",
+      "rejection_reason": "This is another broad LangChain RAG course that substantially overlaps with candidate 3, which has stronger stated from-scratch alignment and a higher learner-fit assessment. Selecting both would duplicate the main foundation."
+    },
+    {
+      "video_id": "_HQ2H_0Ayy0",
+      "title": "RAG Explained For Beginners",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title indicates a short beginner explanation of RAG rather than project-based implementation. The learner needs direct construction of a working application, and the selected foundation provides a more substantial conceptual introduction."
+    },
+    {
+      "video_id": "9lBTS5dM27c",
+      "title": "How to Get Your Data Ready for AI Agents (Docs, PDFs, Websites)",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses on preparing data for AI agents and multiple source types. The agent framing is explicitly outside the learner's scope, and selected document-focused resources provide a more direct path to the requested modest local-document application."
+    },
+    {
+      "video_id": "AUQJ9eeP-Ls",
+      "title": "How to Build a Production-Ready RAG AI Agent in Python (Step-by-Step)",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The production-ready and AI-agent framing conflicts with the learner's preference for a lightweight application and avoidance of advanced agents and large production architectures."
+    },
+    {
+      "video_id": "fFgyOucIFuk",
+      "title": "Feed Your OWN Documents to a Local Large Language Model!",
+      "rejection_category": "insufficient_evidence",
+      "rejection_reason": "The title suggests feeding documents to a local language model, but it does not establish RAG retrieval, chunking, embeddings, vector search, citations, or Python implementation. The selected resources provide stronger metadata support for the requested workflow."
+    },
+    {
+      "video_id": "hYZKrPOyEYk",
+      "title": "LLMs — How ChatGPT works & What is RAG? | Retrieval-Augmented Generation Explained 🔥",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title suggests a general explanatory lecture about LLMs and RAG rather than a complete Python implementation. It may provide useful background, but the selected from-scratch foundation is more directly aligned with the project goal."
+    }
+  ],
+  "covered_topics": [
+    "LLM application architecture in Python",
+    "End-to-end retrieval-augmented generation workflow",
+    "Local document ingestion and text extraction",
+    "Text chunking, chunk size, and overlap",
+    "Embedding generation and embedding model selection",
+    "Vector stores and vector similarity search",
+    "Prompt construction with retrieved context",
+    "Grounded question answering",
+    "A lightweight RAG framework used without hiding core mechanics",
+    "Running a small local RAG application"
+  ],
+  "uncovered_topics": [
+    "Retriever configuration including top-k and relevance thresholds",
+    "Explicit source citations showing the retrieved material used for each answer",
+    "Secure API-key management with environment variables",
+    "Retrieval testing and evaluation",
+    "Debugging ingestion, chunking, embedding, and retrieval failures",
+    "End-to-end application testing",
+    "Packaging details for a small local application"
+  ],
+  "total_duration_seconds": 17835,
+  "budget_seconds": 25200,
+  "remaining_budget_seconds": 7365,
+  "limitations": [
+    "All candidate evidence is metadata-only, so topic coverage and depth should be verified against transcripts or chapters before study.",
+    "No candidate title explicitly confirms retrieval evaluation, systematic debugging, end-to-end testing, source citations, top-k or relevance-threshold configuration, or secure environment-variable API-key handling.",
+    "The curriculum uses a broad from-scratch tutorial plus several focused or project resources; some overlap remains between the document-focused projects, but candidate 11 adds a distinct local-model/PDF angle."
+  ]
+}

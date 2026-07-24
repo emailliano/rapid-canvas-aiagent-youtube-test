@@ -1,0 +1,89 @@
+{
+  "persona_id": "python_rag_application",
+  "overall_passed": true,
+  "checks": [
+    {
+      "name": "budget_compliance",
+      "passed": true,
+      "severity": "error",
+      "detail": "Selected 17835 seconds from a 25200-second budget."
+    },
+    {
+      "name": "duration_arithmetic",
+      "passed": true,
+      "severity": "error",
+      "detail": "Calculated duration is 17835; reported duration is 17835."
+    },
+    {
+      "name": "remaining_budget_arithmetic",
+      "passed": true,
+      "severity": "error",
+      "detail": "Calculated remaining budget is 7365; reported value is 7365."
+    },
+    {
+      "name": "unique_candidate_accounting",
+      "passed": true,
+      "severity": "error",
+      "detail": "Found 17 curriculum entries and 17 unique video IDs."
+    },
+    {
+      "name": "consecutive_order",
+      "passed": true,
+      "severity": "error",
+      "detail": "Expected orders [1, 2, 3, 4, 5, 6]; received [1, 2, 3, 4, 5, 6]."
+    },
+    {
+      "name": "candidate_accounting",
+      "passed": true,
+      "severity": "error",
+      "detail": "Selected 6 and rejected 11 from an expected 17 candidates."
+    },
+    {
+      "name": "recommended_video_count",
+      "passed": true,
+      "severity": "warning",
+      "detail": "Selected 6 videos; the assignment's reference output suggests 4 to 6 when feasible."
+    },
+    {
+      "name": "budget_utilization",
+      "passed": true,
+      "severity": "warning",
+      "detail": "The curriculum uses 70.8% of the available learning budget; the preferred minimum for a project-based curriculum is 67%."
+    },
+    {
+      "name": "curriculum_backbone",
+      "passed": false,
+      "severity": "warning",
+      "detail": "The selected titles and roles do not clearly establish both a foundation/setup resource and a primary project spine. This is a heuristic check and does not verify video contents."
+    },
+    {
+      "name": "surface_content_constraint",
+      "passed": true,
+      "severity": "warning",
+      "detail": "No selected video under five minutes conflicts with the learner's surface-content constraint."
+    },
+    {
+      "name": "content_level_evidence",
+      "passed": false,
+      "severity": "info",
+      "detail": "Selected evidence contains 0 transcript-grounded and 6 metadata-grounded videos."
+    },
+    {
+      "name": "declared_topic_coverage",
+      "passed": false,
+      "severity": "warning",
+      "detail": "The curriculum declares 7 uncovered or unverified topic areas."
+    }
+  ],
+  "metrics": {
+    "selected_video_count": 6,
+    "rejected_video_count": 11,
+    "total_duration_seconds": 17835,
+    "budget_seconds": 25200,
+    "remaining_budget_seconds": 7365,
+    "budget_utilization": 0.7077,
+    "transcript_evidence_count": 0,
+    "metadata_evidence_count": 6,
+    "declared_uncovered_topic_count": 7
+  }
+}
