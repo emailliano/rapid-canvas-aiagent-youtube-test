@@ -1,0 +1,32 @@
+{
+  "persona_id": "machine_learning_from_scratch",
+  "goal": "Implement core machine learning algorithms from scratch in Python and understand how their mathematical definitions become working training and prediction code",
+  "time_budget_minutes": 480,
+  "user_context": {
+    "background": "Mathematically trained learner with a strong foundation in linear algebra, calculus, probability, statistics, and optimization, plus basic Python programming experience",
+    "known": [
+      "Linear algebra",
+      "Calculus and derivatives",
+      "Probability and statistics",
+      "Basic optimization concepts",
+      "Python syntax and basic data structures",
+      "Basic NumPy array operations"
+    ],
+    "unknown": [
+      "Structuring a machine learning implementation in Python",
+      "Vectorized model computations with NumPy",
+      "Linear regression from scratch",
+      "Logistic regression from scratch",
+      "Gradient descent implementation",
+      "Loss functions and gradients in code",
+      "Train and test splitting",
+      "Feature scaling",
+      "Model training loops",
+      "Classification thresholds",
+      "Regression and classification metrics",
+      "Debugging numerical and shape errors",
+      "Comparing a from-scratch model with scikit-learn"
+    ],
+    "constraints": "I prefer rigorous, implementation-focused, project-based content. Prioritize coding algorithms with NumPy and connecting each implementation step to the underlying mathematics. Build at least one complete model-training workflow using a real or realistic dataset. Avoid lengthy introductions to mathematics I already know, Python beginner courses, purely theoretical lectures, no-code demonstrations, and tutorials that only call scikit-learn models without implementing the algorithm. Scikit-learn may be used at the end to validate or compare the from-scratch implementation."
+  }
+}

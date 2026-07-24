@@ -1,0 +1,241 @@
+{
+  "persona_id": "machine_learning_from_scratch",
+  "title": "From-Scratch Machine Learning in Python with NumPy",
+  "selected_videos": [
+    {
+      "video_id": "VmbA0pi2cRQ",
+      "title": "Linear Regression From Scratch in Python (Mathematical)",
+      "url": "https://www.youtube.com/watch?v=VmbA0pi2cRQ",
+      "duration_seconds": 1478,
+      "order": 1,
+      "curriculum_role": "Mathematical-to-code foundation for regression",
+      "added_topics": [
+        "Linear regression implementation from scratch",
+        "Connecting the mathematical regression definition to Python code"
+      ],
+      "inclusion_reason": "The title explicitly identifies a mathematical, from-scratch Python implementation of linear regression. It provides the central supervised-learning foundation, although the use of NumPy, gradient descent, and evaluation should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "kVaP0LeCJWg",
+      "title": "Implementing Gradient Descent For Simple Linear Regression In Python / NumPy | ML Course 2.45",
+      "url": "https://www.youtube.com/watch?v=kVaP0LeCJWg",
+      "duration_seconds": 755,
+      "order": 2,
+      "curriculum_role": "Focused optimization implementation supplement",
+      "added_topics": [
+        "Gradient descent parameter updates",
+        "NumPy-based training for simple linear regression"
+      ],
+      "inclusion_reason": "The title specifically identifies gradient descent, simple linear regression, Python, and NumPy. This directly fills the optimization and parameter-update gap left uncertain by the broader linear-regression foundation.",
+      "evidence_source": "metadata",
+      "confidence": 0.53
+    },
+    {
+      "video_id": "jMpNdxnDaXg",
+      "title": "Linear Regression From Scratch in Python (Mathematical, Closed-Form)",
+      "url": "https://www.youtube.com/watch?v=jMpNdxnDaXg",
+      "duration_seconds": 1646,
+      "order": 3,
+      "curriculum_role": "Alternative regression formulation and mathematical comparison",
+      "added_topics": [
+        "Closed-form linear regression",
+        "Contrasting closed-form fitting with iterative optimization"
+      ],
+      "inclusion_reason": "The title explicitly identifies a mathematical, from-scratch closed-form linear-regression implementation. It is included as a distinct comparison with gradient-descent training rather than as another general regression introduction; the exact NumPy and workflow coverage should be verified.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    },
+    {
+      "video_id": "gAf4LfA6FBU",
+      "title": "Implementation of Logistic Regression using Numpy Python  |  Open Knowledge Share",
+      "url": "https://www.youtube.com/watch?v=gAf4LfA6FBU",
+      "duration_seconds": 4059,
+      "order": 4,
+      "curriculum_role": "Primary classification implementation spine",
+      "added_topics": [
+        "NumPy-based logistic regression",
+        "Binary classification model implementation"
+      ],
+      "inclusion_reason": "The title explicitly identifies logistic regression implemented with NumPy, making it the strongest available candidate for extending the curriculum from regression to classification. Coverage of sigmoid, log loss, gradients, probability predictions, and training-loop details remains provisional.",
+      "evidence_source": "metadata",
+      "confidence": 0.48
+    },
+    {
+      "video_id": "O2Cw82YR5Bo",
+      "title": "Linear Regression in Python - Full Project for Beginners",
+      "url": "https://www.youtube.com/watch?v=O2Cw82YR5Bo",
+      "duration_seconds": 3052,
+      "order": 5,
+      "curriculum_role": "Practical project-workflow foundation",
+      "added_topics": [
+        "A fuller Python linear-regression project workflow",
+        "Potential integration of model implementation and project organization"
+      ],
+      "inclusion_reason": "The title suggests a full Python linear-regression project, which can provide practical structure around the individual algorithm implementations. Because it is labeled for beginners and does not explicitly confirm a from-scratch implementation, its algorithmic depth and library usage should be checked.",
+      "evidence_source": "metadata",
+      "confidence": 0.45
+    },
+    {
+      "video_id": "sjIzfC4AOI0",
+      "title": "Logistic Regression for Classification | Working with a real-world dataset from Kaggle",
+      "url": "https://www.youtube.com/watch?v=sjIzfC4AOI0",
+      "duration_seconds": 9607,
+      "order": 6,
+      "curriculum_role": "End-to-end real-dataset classification application",
+      "added_topics": [
+        "Real-world dataset workflow",
+        "Applied logistic-regression classification",
+        "A context for preprocessing, predictions, and evaluation"
+      ],
+      "inclusion_reason": "The title explicitly identifies logistic-regression classification on a real-world Kaggle dataset, addressing the requirement for a complete dataset-based workflow. It does not establish that the model is implemented from scratch, so it should be used to contextualize and apply the manual implementations rather than replace them.",
+      "evidence_source": "metadata",
+      "confidence": 0.5
+    }
+  ],
+  "rejected_videos": [
+    {
+      "video_id": "Y21OR1OPC9A",
+      "title": "Python Virtual Environments - Full Tutorial for Beginners",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on a beginner tutorial for virtual environments and provides no evidence of the requested NumPy model implementation or mathematical-to-code work."
+    },
+    {
+      "video_id": "714TfDztVVM",
+      "title": "How to Structure a Data Science Project that Uses Pytest",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "Although the title suggests project structure and Pytest, the very short format is unlikely to satisfy the learner's preference for substantial implementation-focused material, and it does not explicitly identify machine-learning model organization."
+    },
+    {
+      "video_id": "gaGaPpnexxA",
+      "title": "Build a Python AI Agent in 10 Minutes",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses on building a Python AI agent rather than implementing regression, classification, gradients, or evaluation from scratch."
+    },
+    {
+      "video_id": "GZbeL5AcTgw",
+      "title": "How To Setup A Virtual Environment For Python In Visual Studio Code In 2023",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title focuses on beginner virtual-environment setup, which is peripheral to the learner's stated gaps and implementation goal."
+    },
+    {
+      "video_id": "rM-l2hUZC0k",
+      "title": "Where Are Python Packages Installed",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title concerns locating installed Python packages and does not indicate machine-learning implementation or workflow coverage."
+    },
+    {
+      "video_id": "ltXSoduiVwY",
+      "title": "How to implement Linear Regression from scratch with Python",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title identifies linear regression from scratch, but it is less specific than the selected linear-regression and gradient-descent candidates about mathematical method, NumPy use, or optimization."
+    },
+    {
+      "video_id": "Souzjv6WfrY",
+      "title": "Building the Gradient Descent Algorithm in 15 Minutes | Coding Challenge",
+      "rejection_category": "redundant",
+      "rejection_reason": "The title indicates a generic gradient-descent coding challenge without identifying a specific model, loss, dataset, or complete workflow; candidate 7 provides more directly relevant linear-regression and NumPy specificity."
+    },
+    {
+      "video_id": "k6VYQOr1xjg",
+      "title": "Logistic Regression from Scratch | Machine Learning from Scratch",
+      "rejection_category": "better_alternative",
+      "rejection_reason": "The title identifies logistic regression from scratch, but candidate 11 more explicitly identifies a NumPy implementation and provides a deeper available format for the classification implementation spine."
+    },
+    {
+      "video_id": "zM4VZR0px8E",
+      "title": "Machine Learning Tutorial Python - 8:  Logistic Regression (Binary Classification)",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title indicates a general binary-classification lesson but does not establish a from-scratch implementation, NumPy use, gradients, or a complete training workflow."
+    },
+    {
+      "video_id": "4b5d3muPQmA",
+      "title": "StatQuest: K-means clustering",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title focuses on k-means and does not address the central linear- and logistic-regression implementation sequence."
+    },
+    {
+      "video_id": "EItlUEPCIzM",
+      "title": "Machine Learning Tutorial Python - 13:  K Means Clustering Algorithm",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title suggests a Python k-means tutorial, but k-means is peripheral to the requested supervised regression and classification workflow."
+    },
+    {
+      "video_id": "D8I91POKxJA",
+      "title": "Numpy: Classification with Kmeans",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "Although the title mentions NumPy, it focuses on k-means classification rather than the required linear and logistic regression algorithms, model APIs, or gradient-based training."
+    },
+    {
+      "video_id": "fiMIlajdLMY",
+      "title": "K-Means Clustering using python",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title only indicates a short k-means Python example and does not support the learner's requirement for rigorous, substantial implementation content."
+    },
+    {
+      "video_id": "m2HyLz7E2Vg",
+      "title": "K means Clustering Implementation | Machine Learning Project 2",
+      "rejection_category": "low_relevance",
+      "rejection_reason": "The title identifies a k-means project, but it does not directly fill the requested regression, logistic-classification, or supervised evaluation gaps."
+    },
+    {
+      "video_id": "SjOfbbfI2qY",
+      "title": "Train Test Split with Python Machine Learning (Scikit-Learn)",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title explicitly emphasizes scikit-learn train-test splitting and does not establish coverage of leakage-safe preprocessing or a from-scratch implementation workflow."
+    },
+    {
+      "video_id": "0B5eIE_1vpU",
+      "title": "Scikit-learn Crash Course - Machine Learning Library for Python",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title indicates a broad scikit-learn crash course, conflicting with the learner's preference for manually implementing algorithms; it is also not specifically tied to validating the selected models."
+    },
+    {
+      "video_id": "SIEaLBXr0rk",
+      "title": "Scikit-Learn Full Crash Course - Python Machine Learning",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The title indicates a broad scikit-learn course rather than NumPy algorithm implementation, and its general scope is less aligned than the selected project resources."
+    },
+    {
+      "video_id": "-IvNzmrcyUM",
+      "title": "Simple Machine Learning Code Tutorial for Beginners with Sklearn Scikit-Learn",
+      "rejection_category": "learner_mismatch",
+      "rejection_reason": "The title frames the material as a beginner scikit-learn coding tutorial and does not indicate mathematical-to-code implementation of the algorithms."
+    },
+    {
+      "video_id": "fbW5PXYmOT4",
+      "title": "Python Mini Project: Build a Predictive AI Model for Beginners (Step-by-Step Tutorial)",
+      "rejection_category": "constraint_violation",
+      "rejection_reason": "The very short beginner-oriented predictive-model project does not identify its algorithm, dataset, NumPy implementation, gradients, or evaluation depth."
+    }
+  ],
+  "covered_topics": [
+    "From-scratch linear regression implementation",
+    "Gradient descent implementation for linear regression",
+    "Closed-form versus iterative regression fitting",
+    "NumPy-oriented logistic regression implementation",
+    "Python project workflow for a predictive model",
+    "Real-world dataset classification workflow",
+    "Regression and classification prediction contexts"
+  ],
+  "uncovered_topics": [
+    "Reusable model APIs with explicit fit, predict, and predict_proba methods",
+    "Explicit confirmation of sigmoid, log loss, logistic-regression gradients, and probability predictions",
+    "Leakage-safe train-test splitting and identical feature scaling for training and test data",
+    "Configurable training loops with convergence tracking",
+    "Explicit classification-threshold selection",
+    "Systematic MSE, RMSE, accuracy, precision, recall, and log-loss implementation",
+    "Finite-difference gradient checks, invariant checks, and debugging NumPy shape, broadcasting, NaN, and exploding-loss errors",
+    "Reproducible experiment organization and explicit comparison between from-scratch and scikit-learn models"
+  ],
+  "total_duration_seconds": 20597,
+  "budget_seconds": 28800,
+  "remaining_budget_seconds": 8203,
+  "limitations": [
+    "The selected set was checked against the supplied preferred count and duration range and does not exceed the hard time budget.",
+    "All candidates rely on metadata-only evidence, so mathematical explanations, code depth, preprocessing details, testing, and scikit-learn comparisons should be verified while watching.",
+    "Candidate 14 supplies the clearest real-dataset workflow signal, but its title does not confirm that the classifier is implemented from scratch; it should supplement rather than replace the manual NumPy implementation.",
+    "The pool lacks a clearly identified resource dedicated to numerical testing, debugging, reusable model APIs, and comprehensive metrics."
+  ]
+}
